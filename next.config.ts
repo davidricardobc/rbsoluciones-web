@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: 'export',
   distDir: 'dist',
+  basePath: '/rbsoluciones-web',
   images: {
     unoptimized: true,
   },
