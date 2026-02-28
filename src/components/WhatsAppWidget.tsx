@@ -14,7 +14,7 @@ export function WhatsAppWidget() {
     return () => clearTimeout(timer);
   }, []);
 
-  const phoneNumber = "573XXXXXXXXX"; // Replace with actual number
+  const phoneNumber = "573183773905"; // Replace with actual number
   const message = encodeURIComponent(
     "Hola, vi su página web y estoy interesado en información sobre sus servicios. ¿Podrían ayudarme?"
   );

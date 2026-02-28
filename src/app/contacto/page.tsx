@@ -98,7 +98,7 @@ export default function ContactoPage() {
 
                 <div className="mt-6 pt-6 border-t border-slate-200">
                   <a
-                    href="https://wa.me/573XXXXXXXXX"
+                    href="https://wa.me/573183773905"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 w-full justify-center bg-whatsapp hover:bg-whatsapp/90 text-white px-4 py-3 rounded-lg font-medium transition-colors"

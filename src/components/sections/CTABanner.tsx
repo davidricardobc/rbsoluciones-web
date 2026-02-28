@@ -50,7 +50,7 @@ export function CTABanner() {
             <ArrowRight className="w-5 h-5" />
           </Link>
           <a
-            href="https://wa.me/573XXXXXXXXX"
+            href="https://wa.me/573183773905"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm px-8 py-4 rounded-xl font-semibold text-base transition-all"
