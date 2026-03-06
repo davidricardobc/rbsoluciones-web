@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
-2:I[50742,["/_next/static/chunks/3b0f4257a0ad44f9.js","/_next/static/chunks/b631cbbc63f42523.js"],"default"]
-3:I[49864,["/_next/static/chunks/3b0f4257a0ad44f9.js","/_next/static/chunks/b631cbbc63f42523.js"],"default"]
-0:{"buildId":"28ajd7zMfd3j-ErApmKTb","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+2:I[50742,["https://rbsoluciones.co/_next/static/chunks/3b0f4257a0ad44f9.js","https://rbsoluciones.co/_next/static/chunks/b631cbbc63f42523.js"],"default"]
+3:I[49864,["https://rbsoluciones.co/_next/static/chunks/3b0f4257a0ad44f9.js","https://rbsoluciones.co/_next/static/chunks/b631cbbc63f42523.js"],"default"]
+0:{"buildId":"Wsjvjutq8fEvS56drRZnk","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
