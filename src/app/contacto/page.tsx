@@ -13,7 +13,7 @@ const locations = [
     state: "Meta",
     type: "Sede Principal",
     address: "Dirección principal, Restrepo, Meta",
-    phone: "+57 3XX XXX XXXX",
+    phone: "+57 318 377 3905",
     hours: "Lun-Vie: 8:00 AM - 5:00 PM\nSáb: 8:00 AM - 12:00 PM",
   },
   {
@@ -21,7 +21,7 @@ const locations = [
     state: "Meta",
     type: "Punto de Atención",
     address: "Proyectos e instalaciones en zona",
-    phone: "+57 3XX XXX XXXX",
+    phone: "+57 318 377 3905",
     hours: "Lun-Vie: 8:00 AM - 5:00 PM",
   },
   {
@@ -29,7 +29,7 @@ const locations = [
     state: "Cundinamarca",
     type: "Proyectos de Gran Formato",
     address: "Cobertura: Bogotá y Sabana",
-    phone: "+57 3XX XXX XXXX",
+    phone: "+57 318 377 3905",
     hours: "Lun-Vie: 8:00 AM - 5:00 PM",
   },
 ];

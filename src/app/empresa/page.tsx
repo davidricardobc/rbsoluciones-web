@@ -56,25 +56,30 @@ export default function EmpresaPage() {
               </h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  Iniciamos en 1998 como un taller metalmecánico familiar en Restrepo, Meta. 
-                  Lo que comenzó fabricando estructuras metálicas para fincas locales, creció 
-                  hasta convertirse en una empresa de soluciones constructivas integrales.
+                  RB Soluciones nace de la trayectoria de nuestro fundador, quien desde 1998 
+                  ha trabajado para empresas líderes como Bavaria y petroleras de renombre. 
+                  Comenzó como soldador y, gracias a su dedicación y excelencia técnica, 
+                  ascendió hasta convertirse en supervisor metalmecánico.
                 </p>
                 <p>
-                  Hoy atendemos desde dueños de casa que quieren renovar su hogar, hasta 
-                  empresas que necesitan montajes industriales a gran escala. Los 26 años nos 
-                  han enseñado que la clave no está solo en la técnica: está en escuchar al 
-                  cliente, cumplir lo prometido y estar ahí cuando nos necesitan.
+                  Durante más de 26 años ha garantizado seguridad y calidad en proyectos 
+                  industriales de gran envergadura. Esta experiencia en el sector petrolero 
+                  y empresarial nos permite ofrecer estándares profesionales en cada trabajo, 
+                  desde una cocina integral hasta montajes industriales complejos.
                 </p>
                 <p>
-                  Nuestro equipo combina experiencia con innovación: técnicos con décadas en 
-                  metalmecánica, diseñadores que entienden estética y funcionalidad, y una 
-                  estructura de empresa que garantiza puntualidad y calidad.
+                  Hoy atendemos proyectos en Restrepo, Villavicencio y Bogotá, llevando la 
+                  misma rigurosidad que exige la industria petrolera a cada hogar y empresa 
+                  que confía en nosotros.
                 </p>
               </div>
             </div>
-            <div className="bg-slate-100 rounded-2xl aspect-square flex items-center justify-center">
-              <span className="text-slate-400">Imagen de la empresa / equipo</span>
+            <div className="bg-slate-100 rounded-2xl aspect-square flex items-center justify-center overflow-hidden">
+              <img 
+                src="/images/portfolio/padre-refineria.jpg" 
+                alt="Fundador de RB Soluciones en refinería" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>

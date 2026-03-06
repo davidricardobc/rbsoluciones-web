@@ -84,13 +84,6 @@ const portfolioItems = [
     description: "Organización inteligente con estantes y barra",
     image: "/images/portfolio/closet-estanteria-abierto.jpg",
   },
-  {
-    id: 12,
-    title: "Closet en Pasillo",
-    category: "Closets",
-    description: "Closet de pared con cajones y puertas",
-    image: "/images/portfolio/closet-pasillo.jpg",
-  },
   // ESCRITORIOS
   {
     id: 13,
