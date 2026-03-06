@@ -1,5 +1,8 @@
+"use client";
+
 import type { Metadata } from "next";
 import Image from "next/image";
+import { useState } from "react";
 
 export const metadata: Metadata = {
   title: "Portafolio | RB Soluciones Constructivas",
@@ -131,11 +134,132 @@ const portfolioItems = [
     image: "/images/portfolio/piso-instalado-real.png",
     isReal: true,
   },
+  // NUEVOS PROYECTOS REALES - APARTAMENTO
+  {
+    id: 18,
+    title: "Cocina Integral Moderna",
+    category: "Proyectos Reales",
+    description: "Cocina integral con isla, acabados en madera clara",
+    image: "/images/portfolio/cocina-integral-1.jpg",
+    isReal: true,
+  },
+  {
+    id: 19,
+    title: "Cocina con Isla Central",
+    category: "Proyectos Reales",
+    description: "Diseño funcional con almacenamiento inteligente",
+    image: "/images/portfolio/cocina-isla-1.jpg",
+    isReal: true,
+  },
+  {
+    id: 20,
+    title: "Sala con Pared de Piedra",
+    category: "Proyectos Reales",
+    description: "Sala moderna con balcón y acabados premium",
+    image: "/images/portfolio/sala-balcon-pared-piedra.jpg",
+    isReal: true,
+  },
+  {
+    id: 21,
+    title: "Closet de Pared Completo",
+    category: "Proyectos Reales",
+    description: "Amplio closet con cajones y espacio para colgar",
+    image: "/images/portfolio/closet-pared.jpg",
+    isReal: true,
+  },
+  {
+    id: 22,
+    title: "Mueble Bar y Estantería",
+    category: "Proyectos Reales",
+    description: "Mueble multifuncional para sala de estar",
+    image: "/images/portfolio/mueble-bar-estanteria.jpg",
+    isReal: true,
+  },
+  // NUEVOS PROYECTOS REALES - ESCRITORIOS GAMING
+  {
+    id: 23,
+    title: "Escritorio Gaming Triple Monitor",
+    category: "Proyectos Reales",
+    description: "Setup profesional con estantes geométricos",
+    image: "/images/portfolio/escritorio-gaming-1.jpg",
+    isReal: true,
+  },
+  {
+    id: 24,
+    title: "Escritorio Gaming RGB",
+    category: "Proyectos Reales",
+    description: "Iluminación LED, silla gamer, estantes triangulares",
+    image: "/images/portfolio/escritorio-gaming-2.jpg",
+    isReal: true,
+  },
+  {
+    id: 25,
+    title: "Escritorio en L con LED",
+    category: "Proyectos Reales",
+    description: "Diseño esquinero con iluminación verde, piano",
+    image: "/images/portfolio/escritorio-l-led-verde.jpg",
+    isReal: true,
+  },
+  {
+    id: 26,
+    title: "Escritorio Dual Laptop",
+    category: "Proyectos Reales",
+    description: "Setup para 2 portátiles + monitor, silla COUGAR",
+    image: "/images/portfolio/escritorio-dual-laptop.jpg",
+    isReal: true,
+  },
+  {
+    id: 27,
+    title: "Estantes Flotantes Decorativos",
+    category: "Proyectos Reales",
+    description: "Cubos flotantes para coleccionables y cuadros",
+    image: "/images/portfolio/estantes-pared-cubos.jpg",
+    isReal: true,
+  },
+  {
+    id: 28,
+    title: "Closet Vestier Abierto",
+    category: "Proyectos Reales",
+    description: "Organización inteligente con estantes y barra",
+    image: "/images/portfolio/closet-estanteria-abierto.jpg",
+    isReal: true,
+  },
+  // NUEVOS PROYECTOS REALES - INDUSTRIAL
+  {
+    id: 29,
+    title: "Montaje de Tuberías y Válvulas",
+    category: "Proyectos Reales",
+    description: "Instalación industrial en campo petrolero",
+    image: "/images/portfolio/tuberias-valvulas.jpg",
+    isReal: true,
+  },
+  {
+    id: 30,
+    title: "Soldadura de Tuberías Industriales",
+    category: "Proyectos Reales",
+    description: "Trabajo de soldadura certificada en obra",
+    image: "/images/portfolio/industrial-soldadura-tuberias.jpg",
+    isReal: true,
+  },
+  {
+    id: 31,
+    title: "Instalación Petrolera",
+    category: "Proyectos Reales",
+    description: "Estructuras metálicas en refinería",
+    image: "/images/portfolio/padre-campo-petrolero-1.jpg",
+    isReal: true,
+  },
 ];
 
 const categories = ["Todos", "Camas", "Hogar", "Exteriores", "Estructuras", "Proyectos Reales"];
 
 export default function PortafolioPage() {
+  const [activeFilter, setActiveFilter] = useState("Todos");
+  
+  const filteredItems = activeFilter === "Todos" 
+    ? portfolioItems 
+    : portfolioItems.filter(item => item.category === activeFilter);
+
   return (
     <>
       {/* Hero */}
@@ -161,8 +285,9 @@ export default function PortafolioPage() {
             {categories.map((filter) => (
               <button
                 key={filter}
+                onClick={() => setActiveFilter(filter)}
                 className={`px-6 py-2 rounded-full font-medium transition-colors ${
-                  filter === "Todos"
+                  filter === activeFilter
                     ? "bg-accent text-white"
                     : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                 }`}
@@ -174,7 +299,7 @@ export default function PortafolioPage() {
 
           {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolioItems.map((item) => (
+            {filteredItems.map((item) => (
               <div
                 key={item.id}
                 className="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300"
