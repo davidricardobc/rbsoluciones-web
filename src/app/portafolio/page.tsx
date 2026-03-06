@@ -4,33 +4,33 @@ import Image from "next/image";
 import { useState } from "react";
 
 const portfolioItems = [
-  // CAMAS
+  // CAMAS - Disponibles en todas las medidas: Sencilla, Semidoble, Doble, Queen, King
   {
     id: 1,
-    title: "Cama Queen en Pino con Cajones",
+    title: "Cama con Cajones en Pino",
     category: "Camas",
-    description: "4 cajones integrados, madera natural",
+    description: "4 cajones integrados, madera natural. Disponible: Sencilla a King",
     image: "/images/portfolio/cama-pino-cajones.png",
   },
   {
     id: 2,
-    title: "Cama Moderna Minimalista",
+    title: "Cama Moderna con LED",
     category: "Camas",
-    description: "LED integrado, diseño contemporáneo",
+    description: "Iluminación LED integrada, diseño contemporáneo. Todas las medidas",
     image: "/images/portfolio/cama-moderna-led.png",
   },
   {
     id: 3,
-    title: "Cama Rústica en Madera",
+    title: "Cama Rústica",
     category: "Camas",
-    description: "Estilo casa de campo, cabecera alta",
+    description: "Estilo casa de campo, cabecera alta. Sencilla a King",
     image: "/images/portfolio/cama-rustica.png",
   },
   {
     id: 4,
-    title: "Litera Infantil con Cama Extra",
+    title: "Litera Infantil",
     category: "Camas",
-    description: "Pino blanco, ideal para familias",
+    description: "Pino blanco, ideal para familias. Personalizable",
     image: "/images/portfolio/cama-litera-infantil.png",
   },
   // COCINAS
