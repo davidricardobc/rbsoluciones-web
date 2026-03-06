@@ -1,13 +1,7 @@
 "use client";
 
-import type { Metadata } from "next";
 import Image from "next/image";
 import { useState } from "react";
-
-export const metadata: Metadata = {
-  title: "Portafolio | RB Soluciones Constructivas",
-  description: "Más de 500 proyectos entregados. Explora nuestro trabajo en cocinas, camas, estructuras metálicas, cerramientos y más.",
-};
 
 const portfolioItems = [
   // CAMAS
@@ -39,219 +33,206 @@ const portfolioItems = [
     description: "Pino blanco, ideal para familias",
     image: "/images/portfolio/cama-litera-infantil.png",
   },
-  // HOGAR
+  // COCINAS
   {
     id: 5,
     title: "Cocina Modular Moderna",
-    category: "Hogar",
+    category: "Cocinas",
     description: "Isla central, acabados premium",
     image: "/images/portfolio/cocina-modular.png",
   },
   {
     id: 6,
+    title: "Cocina Industrial",
+    category: "Cocinas",
+    description: "Estructura metálica expuesta, estilo loft",
+    image: "/images/portfolio/cocina-industrial.png",
+  },
+  {
+    id: 7,
+    title: "Cocina Integral",
+    category: "Cocinas",
+    description: "Cocina integral con isla, acabados en madera clara",
+    image: "/images/portfolio/cocina-integral-1.jpg",
+  },
+  {
+    id: 8,
+    title: "Cocina con Isla Central",
+    category: "Cocinas",
+    description: "Diseño funcional con almacenamiento inteligente",
+    image: "/images/portfolio/cocina-isla-1.jpg",
+  },
+  // CLOSETS
+  {
+    id: 9,
     title: "Closet de Lujo Tipo Boutique",
-    category: "Hogar",
+    category: "Closets",
     description: "Madera, vidrio e iluminación LED",
     image: "/images/portfolio/closet-lujo.png",
   },
   {
-    id: 7,
+    id: 10,
+    title: "Closet de Pared",
+    category: "Closets",
+    description: "Amplio closet con cajones y espacio para colgar",
+    image: "/images/portfolio/closet-pared.jpg",
+  },
+  {
+    id: 11,
+    title: "Closet Vestier",
+    category: "Closets",
+    description: "Organización inteligente con estantes y barra",
+    image: "/images/portfolio/closet-estanteria-abierto.jpg",
+  },
+  // ESCRITORIOS
+  {
+    id: 12,
+    title: "Escritorio Gaming Triple Monitor",
+    category: "Escritorios",
+    description: "Setup profesional con estantes geométricos",
+    image: "/images/portfolio/escritorio-gaming-1.jpg",
+  },
+  {
+    id: 13,
+    title: "Escritorio Gaming RGB",
+    category: "Escritorios",
+    description: "Iluminación LED, silla gamer, estantes triangulares",
+    image: "/images/portfolio/escritorio-gaming-2.jpg",
+  },
+  {
+    id: 14,
+    title: "Escritorio en L con LED",
+    category: "Escritorios",
+    description: "Diseño esquinero con iluminación verde, piano",
+    image: "/images/portfolio/escritorio-l-led-verde.jpg",
+  },
+  {
+    id: 15,
+    title: "Escritorio Dual Laptop",
+    category: "Escritorios",
+    description: "Setup para 2 portátiles + monitor, silla COUGAR",
+    image: "/images/portfolio/escritorio-dual-laptop.jpg",
+  },
+  // CENTROS DE ENTRETENIMIENTO
+  {
+    id: 16,
     title: "Centro de Entretenimiento",
     category: "Hogar",
     description: "Madera + metal, estantes con LED",
     image: "/images/portfolio/centro-entretenimiento.png",
   },
   {
-    id: 8,
-    title: "Baño Elegante",
+    id: 17,
+    title: "Mueble Bar y Estantería",
     category: "Hogar",
-    description: "Doble lavamanos, espejos iluminados",
-    image: "/images/portfolio/bano-elegante.png",
+    description: "Mueble multifuncional para sala de estar",
+    image: "/images/portfolio/mueble-bar-estanteria.jpg",
   },
+  // ACABADOS
   {
-    id: 9,
+    id: 18,
     title: "PVC Marmolizado",
-    category: "Hogar",
+    category: "Acabados",
     description: "Paredes tipo mármol, acabado premium",
     image: "/images/portfolio/pvc-marmolizado.png",
   },
   {
-    id: 10,
+    id: 19,
     title: "Piso SPC",
-    category: "Hogar",
+    category: "Acabados",
     description: "Madera plástica, alta durabilidad",
     image: "/images/portfolio/piso-spc.png",
   },
   {
-    id: 11,
-    title: "Cocina Industrial",
-    category: "Hogar",
-    description: "Estructura metálica expuesta, estilo loft",
-    image: "/images/portfolio/cocina-industrial.png",
+    id: 20,
+    title: "Instalación Piso SPC",
+    category: "Acabados",
+    description: "Trabajo ejecutado por RB Soluciones",
+    image: "/images/portfolio/piso-instalado-real.png",
   },
-  // EXTERIORES / ESTRUCTURAS
+  // EXTERIORES
   {
-    id: 12,
+    id: 21,
     title: "Terraza WPC",
     category: "Exteriores",
     description: "Deck madera plástica, outdoor living",
     image: "/images/portfolio/terraza-wpc.png",
   },
   {
-    id: 13,
+    id: 22,
     title: "Cerramiento Aluminio/Vidrio",
     category: "Exteriores",
     description: "Terraza acristalada, vistas panorámicas",
     image: "/images/portfolio/cerramiento-vidrio.png",
   },
   {
-    id: 14,
+    id: 23,
     title: "Pérgola Moderna con LED",
     category: "Exteriores",
     description: "Estructura metal + madera, iluminación",
     image: "/images/portfolio/pergola-moderna.png",
   },
   {
-    id: 15,
+    id: 24,
     title: "Pérgola Listones Madera",
     category: "Exteriores",
     description: "Sombra filtrada, diseño contemporáneo",
     image: "/images/portfolio/pergola-listones.png",
   },
   {
-    id: 16,
+    id: 25,
+    title: "Sala con Pared de Piedra",
+    category: "Exteriores",
+    description: "Sala moderna con balcón y acabados premium",
+    image: "/images/portfolio/sala-balcon-pared-piedra.jpg",
+  },
+  {
+    id: 26,
+    title: "Sala Balcón",
+    category: "Exteriores",
+    description: "Vista exterior, diseño funcional",
+    image: "/images/portfolio/sala-balcon-vista.jpg",
+  },
+  // ESTRUCTURAS INDUSTRIALES
+  {
+    id: 27,
     title: "Techo Industrial Metálico",
     category: "Estructuras",
     description: "Estructura acero, acabado moderno",
     image: "/images/portfolio/techo-industrial.png",
   },
-  // FOTO REAL
-  {
-    id: 17,
-    title: "Instalación Piso SPC - Proyecto Real",
-    category: "Proyectos Reales",
-    description: "Trabajo real ejecutado por RB Soluciones",
-    image: "/images/portfolio/piso-instalado-real.png",
-    isReal: true,
-  },
-  // NUEVOS PROYECTOS REALES - APARTAMENTO
-  {
-    id: 18,
-    title: "Cocina Integral Moderna",
-    category: "Proyectos Reales",
-    description: "Cocina integral con isla, acabados en madera clara",
-    image: "/images/portfolio/cocina-integral-1.jpg",
-    isReal: true,
-  },
-  {
-    id: 19,
-    title: "Cocina con Isla Central",
-    category: "Proyectos Reales",
-    description: "Diseño funcional con almacenamiento inteligente",
-    image: "/images/portfolio/cocina-isla-1.jpg",
-    isReal: true,
-  },
-  {
-    id: 20,
-    title: "Sala con Pared de Piedra",
-    category: "Proyectos Reales",
-    description: "Sala moderna con balcón y acabados premium",
-    image: "/images/portfolio/sala-balcon-pared-piedra.jpg",
-    isReal: true,
-  },
-  {
-    id: 21,
-    title: "Closet de Pared Completo",
-    category: "Proyectos Reales",
-    description: "Amplio closet con cajones y espacio para colgar",
-    image: "/images/portfolio/closet-pared.jpg",
-    isReal: true,
-  },
-  {
-    id: 22,
-    title: "Mueble Bar y Estantería",
-    category: "Proyectos Reales",
-    description: "Mueble multifuncional para sala de estar",
-    image: "/images/portfolio/mueble-bar-estanteria.jpg",
-    isReal: true,
-  },
-  // NUEVOS PROYECTOS REALES - ESCRITORIOS GAMING
-  {
-    id: 23,
-    title: "Escritorio Gaming Triple Monitor",
-    category: "Proyectos Reales",
-    description: "Setup profesional con estantes geométricos",
-    image: "/images/portfolio/escritorio-gaming-1.jpg",
-    isReal: true,
-  },
-  {
-    id: 24,
-    title: "Escritorio Gaming RGB",
-    category: "Proyectos Reales",
-    description: "Iluminación LED, silla gamer, estantes triangulares",
-    image: "/images/portfolio/escritorio-gaming-2.jpg",
-    isReal: true,
-  },
-  {
-    id: 25,
-    title: "Escritorio en L con LED",
-    category: "Proyectos Reales",
-    description: "Diseño esquinero con iluminación verde, piano",
-    image: "/images/portfolio/escritorio-l-led-verde.jpg",
-    isReal: true,
-  },
-  {
-    id: 26,
-    title: "Escritorio Dual Laptop",
-    category: "Proyectos Reales",
-    description: "Setup para 2 portátiles + monitor, silla COUGAR",
-    image: "/images/portfolio/escritorio-dual-laptop.jpg",
-    isReal: true,
-  },
-  {
-    id: 27,
-    title: "Estantes Flotantes Decorativos",
-    category: "Proyectos Reales",
-    description: "Cubos flotantes para coleccionables y cuadros",
-    image: "/images/portfolio/estantes-pared-cubos.jpg",
-    isReal: true,
-  },
   {
     id: 28,
-    title: "Closet Vestier Abierto",
-    category: "Proyectos Reales",
-    description: "Organización inteligente con estantes y barra",
-    image: "/images/portfolio/closet-estanteria-abierto.jpg",
-    isReal: true,
-  },
-  // NUEVOS PROYECTOS REALES - INDUSTRIAL
-  {
-    id: 29,
     title: "Montaje de Tuberías y Válvulas",
-    category: "Proyectos Reales",
+    category: "Estructuras",
     description: "Instalación industrial en campo petrolero",
     image: "/images/portfolio/tuberias-valvulas.jpg",
-    isReal: true,
+  },
+  {
+    id: 29,
+    title: "Soldadura de Tuberías Industriales",
+    category: "Estructuras",
+    description: "Trabajo de soldadura certificada en obra",
+    image: "/images/portfolio/industrial-soldadura-tuberias.jpg",
   },
   {
     id: 30,
-    title: "Soldadura de Tuberías Industriales",
-    category: "Proyectos Reales",
-    description: "Trabajo de soldadura certificada en obra",
-    image: "/images/portfolio/industrial-soldadura-tuberias.jpg",
-    isReal: true,
-  },
-  {
-    id: 31,
     title: "Instalación Petrolera",
-    category: "Proyectos Reales",
+    category: "Estructuras",
     description: "Estructuras metálicas en refinería",
     image: "/images/portfolio/padre-campo-petrolero-1.jpg",
-    isReal: true,
+  },
+  // BAÑOS
+  {
+    id: 31,
+    title: "Baño Elegante",
+    category: "Baños",
+    description: "Doble lavamanos, espejos iluminados",
+    image: "/images/portfolio/bano-elegante.png",
   },
 ];
 
-const categories = ["Todos", "Camas", "Hogar", "Exteriores", "Estructuras", "Proyectos Reales"];
+const categories = ["Todos", "Camas", "Cocinas", "Closets", "Escritorios", "Acabados", "Exteriores", "Estructuras", "Baños"];
 
 export default function PortafolioPage() {
   const [activeFilter, setActiveFilter] = useState("Todos");
@@ -286,7 +267,7 @@ export default function PortafolioPage() {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-6 py-2 rounded-full font-medium transition-colors ${
+                className={`px-4 py-2 rounded-full font-medium transition-colors text-sm sm:text-base ${
                   filter === activeFilter
                     ? "bg-accent text-white"
                     : "bg-slate-100 text-slate-600 hover:bg-slate-200"
@@ -310,13 +291,12 @@ export default function PortafolioPage() {
                     alt={item.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className={`inline-block text-white text-xs px-3 py-1 rounded-full ${
-                      item.isReal ? "bg-green-500" : "bg-accent"
-                    }`}>
-                      {item.category}{item.isReal ? " ✓ Real" : ""}
+                    <span className="inline-block text-white text-xs px-3 py-1 rounded-full bg-accent">
+                      {item.category}
                     </span>
                   </div>
                 </div>
