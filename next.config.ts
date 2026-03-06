@@ -2,12 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export',
-  distDir: 'dist',
+  distDir: 'docs',
+  basePath: '/rbsoluciones-web',
   images: {
     unoptimized: true,
   },
   trailingSlash: true,
-  assetPrefix: '.',
 };
 
 export default nextConfig;
