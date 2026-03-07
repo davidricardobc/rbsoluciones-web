@@ -126,10 +126,10 @@ export default function ContactoPage() {
             Para cotizaciones detalladas o información general
           </p>
           <a
-            href="mailto:info@rbsoluciones.co"
+            href="mailto:Rbsolucionesinfo@gmail.com"
             className="inline-flex items-center gap-2 text-accent font-semibold text-lg hover:underline"
           >
-            info@rbsoluciones.co
+            Rbsolucionesinfo@gmail.com
           </a>
         </div>
       </section>

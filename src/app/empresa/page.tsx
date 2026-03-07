@@ -56,31 +56,105 @@ export default function EmpresaPage() {
               </h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  RB Soluciones nace de la trayectoria de nuestro fundador, quien desde 1998 
-                  ha trabajado para empresas líderes como Bavaria y petroleras de renombre. 
-                  Comenzó como soldador y, gracias a su dedicación y excelencia técnica, 
-                  ascendió hasta convertirse en supervisor metalmecánico.
+                  RB Soluciones Constructivas was born from more than 26 years of experience in the metal-mechanical, industrial, and construction sectors.
                 </p>
                 <p>
-                  Durante más de 26 años ha garantizado seguridad y calidad en proyectos 
-                  industriales de gran envergadura. Esta experiencia en el sector petrolero 
-                  y empresarial nos permite ofrecer estándares profesionales en cada trabajo, 
-                  desde una cocina integral hasta montajes industriales complejos.
+                  <strong>Ricardo Bajonero</strong>, founder of the company, began his career as an industrial mechanic and over the years assumed greater responsibilities in large-scale projects, working as a supervisor, project resident, and technical team leader.
                 </p>
                 <p>
-                  Hoy atendemos proyectos en Restrepo, Villavicencio y Bogotá, llevando la 
-                  misma rigurosidad que exige la industria petrolera a cada hogar y empresa 
-                  que confía en nosotros.
+                  Throughout his career he has participated in projects for major companies such as: <em>CBI Reficar, Bavaria, Pacific Rubiales, Federación Nacional de Cafeteros, and Flamingo Oil.</em>
+                </p>
+                
+                <div className="bg-slate-50 rounded-xl p-6 my-6">
+                  <h3 className="font-semibold text-slate-900 mb-3">His experience includes:</h3>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>Hydrostatic testing in industrial systems</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>Mechanical and structural supervision</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>Fabrication of crude oil refining equipment</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>Installation and assembly of industrial equipment</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>Metal structure construction and installation</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <p>
+                  Over time, this technical expertise evolved into a vision: creating a company capable of bringing the same level of industrial precision to residential and commercial construction.
+                </p>
+                <p className="font-semibold text-slate-900">
+                  That vision became RB Soluciones Constructivas.
                 </p>
               </div>
             </div>
-            <div className="bg-slate-100 rounded-2xl aspect-square flex items-center justify-center overflow-hidden">
-              <img 
-                src="/images/portfolio/padre-refineria.jpg" 
-                alt="Fundador de RB Soluciones en refinería" 
-                className="w-full h-full object-cover"
-              />
+            <div className="flex flex-col gap-6">
+              <div className="bg-slate-100 rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="/images/portfolio/padre-campo-petrolero-1.jpg" 
+                  alt="Ricardo Bajonero - Fundador de RB Soluciones Constructivas" 
+                  className="w-full h-auto max-h-[500px] object-contain"
+                />
+              </div>
+              <div className="text-center">
+                <p className="font-heading font-bold text-slate-900 text-lg">Ricardo Bajonero</p>
+                <p className="text-accent font-medium">Fundador & Director Técnico</p>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Focus */}
+      <section className="py-20 lg:py-32 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 font-heading">
+              Nuestro Enfoque Actual
+            </h2>
+            <p className="text-lg text-slate-600">
+              Today the company focuses on the design, fabrication, and installation of custom solutions
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              "Metal structures",
+              "Pergolas and terrace covers", 
+              "Partial roof systems",
+              "Modular kitchen furniture",
+              "Bedroom closets and custom furniture",
+              "Entertainment centers and interior solutions",
+              "PVC marble panels and WPC finishes",
+              "SPC flooring installation"
+            ].map((service, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-xl p-6 border border-slate-200 hover:shadow-md transition-shadow"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0" />
+                  <span className="text-slate-700 font-medium">{service}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-lg text-slate-800 font-medium max-w-2xl mx-auto">
+              The goal is simple: deliver every project with the same responsibility, precision, and quality required in large industrial projects.
+            </p>
           </div>
         </div>
       </section>
