@@ -102,7 +102,7 @@ export default function EmpresaPage() {
             <div className="flex flex-col gap-6">
               <div className="bg-slate-100 rounded-2xl overflow-hidden shadow-lg">
                 <img 
-                  src="/images/portfolio/padre-campo-petrolero-1.jpg" 
+                  src="/images/portfolio/ricardo-bajonero-fundador.jpg" 
                   alt="Ricardo Bajonero - Fundador de RB Soluciones Constructivas" 
                   className="w-full h-auto max-h-[500px] object-contain"
                 />
