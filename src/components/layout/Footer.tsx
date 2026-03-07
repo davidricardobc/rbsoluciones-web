@@ -108,35 +108,50 @@ export function Footer() {
           {/* Contact Column */}
           <div>
             <h3 className="text-white font-semibold mb-6 font-heading">Contacto</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                <div className="text-sm">
-                  <p className="text-white font-medium">Restrepo, Meta</p>
-                  <p className="text-slate-400">Sede Principal</p>
-                  <p className="text-slate-500 text-xs mt-1">También en Villavicencio y Bogotá</p>
-                </div>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-accent flex-shrink-0" />
-                <a href="tel:+573183773905" className="text-slate-400 hover:text-white text-sm transition-colors">
-                  +57 3XX XXX XXXX
+            <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700/50">
+              {/* Phone */}
+              <div className="mb-4">
+                <p className="text-slate-400 text-xs uppercase tracking-wide mb-1">Teléfono / WhatsApp</p>
+                <a 
+                  href="https://wa.me/573183773905" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-white hover:text-accent transition-colors group"
+                >
+                  <Phone className="w-4 h-4 text-accent group-hover:scale-110 transition-transform" />
+                  <span className="text-lg font-semibold font-heading">+57 318 377 3905</span>
                 </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-accent flex-shrink-0" />
-                <a href="mailto:info@rbsoluciones.co" className="text-slate-400 hover:text-white text-sm transition-colors">
-                  info@rbsoluciones.co
+              </div>
+              
+              {/* Email */}
+              <div className="mb-5">
+                <p className="text-slate-400 text-xs uppercase tracking-wide mb-1">Correo</p>
+                <a 
+                  href="mailto:rbsolucionesinfo@gmail.com"
+                  className="flex items-center gap-2 text-white hover:text-accent transition-colors group"
+                >
+                  <Mail className="w-4 h-4 text-accent group-hover:scale-110 transition-transform" />
+                  <span className="text-sm font-medium">rbsolucionesinfo@gmail.com</span>
                 </a>
-              </li>
-            </ul>
-            <div className="mt-6">
+              </div>
+              
+              {/* CTA Button */}
               <Link
                 href="/cotizar"
-                className="inline-flex items-center justify-center w-full bg-accent hover:bg-accent-hover text-white px-4 py-2.5 rounded-lg font-medium text-sm transition-all"
+                className="inline-flex items-center justify-center w-full bg-accent hover:bg-accent-hover text-white px-4 py-3 rounded-lg font-semibold text-sm transition-all shadow-lg shadow-accent/20 hover:shadow-accent/30 hover:-translate-y-0.5"
               >
                 Solicitar Cotización
               </Link>
+            </div>
+            
+            {/* Location */}
+            <div className="mt-4 flex items-start gap-3">
+              <MapPin className="w-4 h-4 text-slate-500 flex-shrink-0 mt-0.5" />
+              <div className="text-xs text-slate-500">
+                <span className="text-slate-400">Restrepo, Meta</span> — Sede Principal
+                <br />
+                <span className="text-slate-600">También en Villavicencio y Bogotá</span>
+              </div>
             </div>
           </div>
         </div>

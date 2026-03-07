@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle } from "lucide-react";
 
 export function Hero() {
@@ -95,6 +96,14 @@ export function Hero() {
           <div className="absolute inset-0 bg-gradient-to-l from-slate-100 to-transparent" />
           <div className="absolute right-8 top-1/2 -translate-y-1/2 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
           <div className="absolute right-16 bottom-1/4 w-48 h-48 bg-steel/10 rounded-full blur-2xl" />
+          
+          {/* Blueprint Decorative Icons */}
+          <div className="absolute right-12 top-1/4 w-32 h-32 opacity-[0.08]">
+            <Image src="/icons/blueprint/icon-02-steel-beam.svg" alt="" fill className="object-contain" />
+          </div>
+          <div className="absolute right-32 bottom-1/3 w-24 h-24 opacity-[0.06]">
+            <Image src="/icons/blueprint/icon-15-drafting-compass.svg" alt="" fill className="object-contain" />
+          </div>
         </div>
       </div>
     </section>
