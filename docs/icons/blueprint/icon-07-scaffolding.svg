@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2a4a6e" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" fill="#1a3a5c"/>
+  <rect width="512" height="512" fill="url(#grid)"/>
+  
+  <!-- Scaffolding Structure -->
+  <g stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Vertical Standards (Posts) -->
+    <rect x="130" y="100" width="10" height="300" opacity="0.9"/>
+    <rect x="200" y="100" width="10" height="300" opacity="0.9"/>
+    <rect x="270" y="100" width="10" height="300" opacity="0.9"/>
+    <rect x="340" y="100" width="10" height="300" opacity="0.9"/>
+    <rect x="372" y="100" width="10" height="300" opacity="0.9"/>
+    <!-- Horizontal Ledgers (Levels) -->
+    <rect x="130" y="150" width="252" height="8" opacity="0.85"/>
+    <rect x="130" y="220" width="252" height="8" opacity="0.85"/>
+    <rect x="130" y="290" width="252" height="8" opacity="0.85"/>
+    <rect x="130" y="360" width="252" height="8" opacity="0.85"/>
+    <!-- Transoms (Cross beams) -->
+    <rect x="140" y="150" width="8" height="70" opacity="0.75"/>
+    <rect x="210" y="150" width="8" height="70" opacity="0.75"/>
+    <rect x="280" y="150" width="8" height="70" opacity="0.75"/>
+    <rect x="140" y="220" width="8" height="70" opacity="0.75"/>
+    <rect x="210" y="220" width="8" height="70" opacity="0.75"/>
+    <rect x="280" y="220" width="8" height="70" opacity="0.75"/>
+    <rect x="140" y="290" width="8" height="70" opacity="0.75"/>
+    <rect x="210" y="290" width="8" height="70" opacity="0.75"/>
+    <rect x="280" y="290" width="8" height="70" opacity="0.75"/>
+    <!-- Cross Bracing (Diagonals) -->
+    <line x1="140" y1="150" x2="350" y2="290" opacity="0.6" stroke-width="1.5"/>
+    <line x1="350" y1="150" x2="140" y2="290" opacity="0.6" stroke-width="1.5"/>
+    <line x1="210" y1="220" x2="410" y2="360" opacity="0.6" stroke-width="1.5"/>
+    <!-- Walkway/Planks -->
+    <rect x="135" y="145" width="242" height="3" opacity="0.5"/>
+    <rect x="135" y="215" width="242" height="3" opacity="0.5"/>
+    <rect x="135" y="285" width="242" height="3" opacity="0.5"/>
+    <!-- Base Plates -->
+    <rect x="125" y="400" width="20" height="4" opacity="0.8"/>
+    <rect x="195" y="400" width="20" height="4" opacity="0.8"/>
+    <rect x="265" y="400" width="20" height="4" opacity="0.8"/>
+    <rect x="335" y="400" width="20" height="4" opacity="0.8"/>
+    <rect x="367" y="400" width="20" height="4" opacity="0.8"/>
+  </g>
+  
+  <!-- Dimension Lines -->
+  <g stroke="#ffffff" stroke-width="1" opacity="0.5" fill="none">
+    <line x1="110" y1="420" x2="382" y2="420"/>
+    <line x1="135" y1="400" x2="135" y2="430"/>
+    <line x1="377" y1="400" x2="377" y2="430"/>
+    <text x="256" y="440" fill="#ffffff" font-size="9" text-anchor="middle" opacity="0.6">W=3.0m</text>
+    <!-- Height dimension -->
+    <line x1="90" y1="100" x2="90" y2="400"/>
+    <line x1="85" y1="100" x2="95" y2="100"/>
+    <line x1="85" y1="400" x2="95" y2="400"/>
+    <text x="75" y="250" fill="#ffffff" font-size="9" text-anchor="end" opacity="0.6">H=6.0m</text>
+  </g>
+  
+  <!-- Coupler Icons -->
+  <g fill="#ffffff" opacity="0.5">
+    <rect x="165" y="151" width="6" height="6"/>
+    <rect x="235" y="151" width="6" height="6"/>
+    <rect x="305" y="151" width="6" height="6"/>
+  </g>
+</svg>
