@@ -49,57 +49,57 @@ export default function EmpresaPage() {
       {/* History */}
       <section className="py-20 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
               <h2 className="text-3xl font-bold text-slate-900 mb-6 font-heading">
                 Nuestra Historia
               </h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  RB Soluciones Constructivas was born from more than 26 years of experience in the metal-mechanical, industrial, and construction sectors.
+                  RB Soluciones Constructivas nace de más de 26 años de experiencia en los sectores metalmecánico, industrial y de la construcción.
                 </p>
                 <p>
-                  <strong>Ricardo Bajonero</strong>, founder of the company, began his career as an industrial mechanic and over the years assumed greater responsibilities in large-scale projects, working as a supervisor, project resident, and technical team leader.
+                  <strong>Ricardo Bajonero</strong>, fundador de la empresa, inició su carrera como mecánico industrial y, con el paso de los años, asumió mayores responsabilidades en proyectos de gran escala, desempeñándose como supervisor, residente de obra y líder de equipos técnicos.
                 </p>
                 <p>
-                  Throughout his career he has participated in projects for major companies such as: <em>CBI Reficar, Bavaria, Pacific Rubiales, Federación Nacional de Cafeteros, and Flamingo Oil.</em>
+                  A lo largo de su trayectoria ha participado en proyectos para importantes compañías como: <em>CBI Reficar, Bavaria, Pacific Rubiales, la Federación Nacional de Cafeteros y Flamingo Oil.</em>
                 </p>
                 
-                <div className="bg-slate-50 rounded-xl p-6 my-6">
-                  <h3 className="font-semibold text-slate-900 mb-3">His experience includes:</h3>
+                <div className="bg-slate-50 rounded-xl p-6 my-6 border border-slate-100">
+                  <h3 className="font-semibold text-slate-900 mb-3">Su experiencia incluye:</h3>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
                       <span className="text-accent mt-1">•</span>
-                      <span>Hydrostatic testing in industrial systems</span>
+                      <span>Pruebas hidrostáticas en sistemas industriales</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-accent mt-1">•</span>
-                      <span>Mechanical and structural supervision</span>
+                      <span>Supervisión mecánica y estructural</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-accent mt-1">•</span>
-                      <span>Fabrication of crude oil refining equipment</span>
+                      <span>Fabricación de equipos para refinación de crudo</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-accent mt-1">•</span>
-                      <span>Installation and assembly of industrial equipment</span>
+                      <span>Instalación y montaje de equipos industriales</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-accent mt-1">•</span>
-                      <span>Metal structure construction and installation</span>
+                      <span>Construcción e instalación de estructuras metálicas</span>
                     </li>
                   </ul>
                 </div>
 
                 <p>
-                  Over time, this technical expertise evolved into a vision: creating a company capable of bringing the same level of industrial precision to residential and commercial construction.
+                  Con el tiempo, esta experiencia técnica evolucionó hacia una visión: crear una empresa capaz de llevar ese mismo nivel de precisión industrial al mundo residencial y comercial.
                 </p>
                 <p className="font-semibold text-slate-900">
-                  That vision became RB Soluciones Constructivas.
+                  Así nació RB Soluciones Constructivas.
                 </p>
               </div>
             </div>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 lg:sticky lg:top-8">
               <div className="bg-slate-100 rounded-2xl overflow-hidden shadow-lg">
                 <img 
                   src="/images/portfolio/ricardo-bajonero-fundador.jpg" 
@@ -107,9 +107,9 @@ export default function EmpresaPage() {
                   className="w-full h-auto max-h-[500px] object-contain"
                 />
               </div>
-              <div className="text-center">
+              <div className="text-center bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
                 <p className="font-heading font-bold text-slate-900 text-lg">Ricardo Bajonero</p>
-                <p className="text-accent font-medium">Fundador & Director Técnico</p>
+                <p className="text-accent font-medium">Fundador y Director Técnico</p>
               </div>
             </div>
           </div>
@@ -124,20 +124,20 @@ export default function EmpresaPage() {
               Nuestro Enfoque Actual
             </h2>
             <p className="text-lg text-slate-600">
-              Today the company focuses on the design, fabrication, and installation of custom solutions
+              Hoy la empresa se enfoca en el diseño, fabricación e instalación de soluciones personalizadas.
             </p>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              "Metal structures",
-              "Pergolas and terrace covers", 
-              "Partial roof systems",
-              "Modular kitchen furniture",
-              "Bedroom closets and custom furniture",
-              "Entertainment centers and interior solutions",
-              "PVC marble panels and WPC finishes",
-              "SPC flooring installation"
+              "Estructuras metálicas",
+              "Pérgolas y cubiertas para terrazas", 
+              "Sistemas de cubiertas parciales",
+              "Cocinas modulares",
+              "Closets y muebles a medida",
+              "Centros de entretenimiento y soluciones interiores",
+              "Paneles PVC marmolizado y acabados WPC",
+              "Instalación de piso SPC"
             ].map((service, index) => (
               <div 
                 key={index}
@@ -153,7 +153,7 @@ export default function EmpresaPage() {
 
           <div className="mt-12 text-center">
             <p className="text-lg text-slate-800 font-medium max-w-2xl mx-auto">
-              The goal is simple: deliver every project with the same responsibility, precision, and quality required in large industrial projects.
+              Nuestro objetivo es simple: entregar cada proyecto con la misma responsabilidad, precisión y calidad que exigen los grandes proyectos industriales.
             </p>
           </div>
         </div>

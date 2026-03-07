@@ -24,11 +24,11 @@ export default function ProcesoPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 lg:py-32 bg-white">
+      <section className="py-20 lg:py-32 bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative">
             {/* Vertical Line */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 -translate-x-1/2" />
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 -translate-x-1/2 z-0" />
 
             {/* Steps */}
             {[
@@ -59,23 +59,28 @@ export default function ProcesoPage() {
             ].map((item, index) => (
               <div
                 key={item.step}
-                className={`relative flex flex-col md:flex-row gap-8 md:gap-0 mb-16 last:mb-0 ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
+                className="relative flex flex-col md:flex-row gap-6 md:gap-0 mb-12 md:mb-16 last:mb-0"
               >
+                {/* Mobile Badge */}
+                <div className="md:hidden flex-shrink-0 mb-4">
+                  <div className="inline-flex items-center justify-center w-14 h-14 bg-accent rounded-full shadow-lg">
+                    <span className="text-white font-bold text-lg">{item.step}</span>
+                  </div>
+                </div>
+
                 {/* Content */}
-                <div className={`flex-1 ${index % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16"}`}>
-                  <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100">
-                    <span className="inline-block bg-accent text-white text-sm font-bold px-4 py-1 rounded-full mb-4">
+                <div className={`flex-1 ${index % 2 === 0 ? "md:pr-12 lg:pr-16 md:text-right" : "md:pl-12 lg:pl-16"}`}>
+                  <div className="bg-slate-50 rounded-2xl p-6 md:p-8 border border-slate-100 shadow-sm">
+                    <span className="inline-block bg-accent text-white text-sm font-bold px-4 py-1.5 rounded-full mb-4">
                       Paso {item.step}
                     </span>
-                    <h2 className="text-2xl font-bold text-slate-900 mb-4 font-heading">
+                    <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 md:mb-4 font-heading">
                       {item.title}
                     </h2>
-                    <p className="text-slate-600 leading-relaxed mb-6">
+                    <p className="text-slate-600 leading-relaxed mb-4 md:mb-6">
                       {item.description}
                     </p>
-                    <ul className={`space-y-2 ${index % 2 === 0 ? "md:ml-auto" : ""}`}>
+                    <ul className="space-y-2">
                       {item.details.map((detail, i) => (
                         <li
                           key={i}
@@ -83,19 +88,18 @@ export default function ProcesoPage() {
                             index % 2 === 0 ? "md:justify-end" : ""
                           }`}
                         >
-                          {index % 2 !== 0 && <span className="w-1.5 h-1.5 bg-accent rounded-full" />}
-                          {detail}
-                          {index % 2 === 0 && <span className="w-1.5 h-1.5 bg-accent rounded-full" />}
+                          <span className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0" />
+                          <span>{detail}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
 
-                {/* Center Dot */}
-                <div className="hidden md:flex absolute left-1/2 top-8 -translate-x-1/2 z-10">
-                  <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-white font-bold text-lg">{item.step}</span>
+                {/* Center Dot - Desktop only */}
+                <div className="hidden md:flex absolute left-1/2 top-8 -translate-x-1/2 z-20">
+                  <div className="w-14 h-14 lg:w-16 lg:h-16 bg-accent rounded-full flex items-center justify-center shadow-lg ring-4 ring-white">
+                    <span className="text-white font-bold text-base lg:text-lg">{item.step}</span>
                   </div>
                 </div>
 
