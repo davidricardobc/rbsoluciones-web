@@ -10,47 +10,30 @@ const steps = [
     number: "01",
     title: "Consulta Inicial",
     description: "Escuchamos tu idea. Cotización sin compromiso. Analizamos tu necesidad y viabilidad.",
-    blueprintIcon: "icon-15-drafting-compass.svg",
   },
   {
     icon: Pencil,
     number: "02",
     title: "Diseño Técnico",
     description: "Visitamos tu espacio, tomamos medidas precisas y elaboramos planos técnicos detallados.",
-    blueprintIcon: "icon-02-steel-beam.svg",
   },
   {
     icon: Settings,
     number: "03",
     title: "Fabricación",
     description: "Materializamos tu proyecto en nuestro taller con control de calidad riguroso y materiales certificados.",
-    blueprintIcon: "icon-03-welded-joint.svg",
   },
   {
     icon: CheckCircle,
     number: "04",
     title: "Instalación",
     description: "Montaje profesional en tu espacio con garantía de funcionamiento y acabado impecable.",
-    blueprintIcon: "icon-12-metal-staircase.svg",
   },
 ];
 
 export function ProcessSteps() {
   return (
     <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
-      {/* Blueprint Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
-        <div className="absolute top-10 left-10 w-28 h-28">
-          <Image src="/icons/blueprint/icon-06-welding-machine.svg" alt="" fill className="object-contain" />
-        </div>
-        <div className="absolute bottom-20 right-10 w-32 h-32">
-          <Image src="/icons/blueprint/icon-05-angle-grinder.svg" alt="" fill className="object-contain" />
-        </div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24">
-          <Image src="/icons/blueprint/icon-11-anchor-bolt.svg" alt="" fill className="object-contain" />
-        </div>
-      </div>
-      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -101,17 +84,6 @@ export function ProcessSteps() {
                   className="relative"
                 >
                   <div className="bg-white rounded-2xl p-6 lg:p-8 border border-slate-100 hover:border-accent/20 hover:shadow-lg transition-all duration-300 relative z-10 overflow-hidden">
-                    {/* Blueprint Decorative Icon */}
-                    <div className="absolute -right-2 -bottom-2 w-20 h-20 opacity-[0.04] group-hover:opacity-[0.08] transition-opacity">
-                      <Image 
-                        src={`/icons/blueprint/${step.blueprintIcon}`}
-                        alt=""
-                        width={80}
-                        height={80}
-                        className="w-full h-full"
-                      />
-                    </div>
-                    
                     {/* Number Badge */}
                     <div className="absolute -top-3 -right-3 w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-bold text-sm">
                       {step.number}
