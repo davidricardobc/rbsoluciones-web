@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { MessageSquare, Pencil, Settings, CheckCircle } from "lucide-react";
 
 const steps = [
@@ -83,9 +82,9 @@ export function ProcessSteps() {
                   viewport={{ once: true }}
                   className="relative"
                 >
-                  <div className="bg-white rounded-2xl p-6 lg:p-8 border border-slate-100 hover:border-accent/20 hover:shadow-lg transition-all duration-300 relative z-10 overflow-hidden">
+                  <div className="bg-white rounded-2xl p-6 lg:p-8 border border-slate-100 hover:border-accent/20 hover:shadow-lg transition-all duration-300 relative z-10 overflow-visible pt-8 pr-8">
                     {/* Number Badge */}
-                    <div className="absolute -top-3 -right-3 w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    <div className="absolute -top-2 -right-2 w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-bold text-sm shadow-md">
                       {step.number}
                     </div>
 
