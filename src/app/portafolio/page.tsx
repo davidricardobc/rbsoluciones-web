@@ -36,14 +36,14 @@ const portfolioItems = [
   // COCINAS — reales primero
   {
     id: 7,
-    title: "Cocina Integral",
+    title: "Cocina con Isla Central",
     category: "Cocinas",
     description: "Cocina integral con isla, acabados en madera clara",
     image: "/images/portfolio/cocina-integral-1.jpg",
   },
   {
     id: 8,
-    title: "Cocina con Isla Central",
+    title: "Cocina Integral",
     category: "Cocinas",
     description: "Diseño funcional con almacenamiento inteligente",
     image: "/images/portfolio/cocina-isla-1.jpg",
