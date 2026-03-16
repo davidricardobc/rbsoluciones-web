@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2a4a6e" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" fill="#1a3a5c"/>
+  <rect width="512" height="512" fill="url(#grid)"/>
+  
+  <!-- Kitchen Cabinet Structure -->
+  <g stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Top Cabinet -->
+    <rect x="150" y="100" width="212" height="140" opacity="0.95"/>
+    <!-- Bottom Cabinet -->
+    <rect x="150" y="260" width="212" height="140" opacity="0.95"/>
+    <!-- Countertop -->
+    <rect x="145" y="252" width="222" height="12" opacity="0.9"/>
+    <!-- Upper Doors -->
+    <line x1="256" y1="100" x2="256" y2="240" opacity="0.85"/>
+    <rect x="160" y="110" width="86" height="120" opacity="0.7"/>
+    <rect x="266" y="110" width="86" height="120" opacity="0.7"/>
+    <!-- Lower Doors -->
+    <line x1="256" y1="260" x2="256" y2="400" opacity="0.85"/>
+    <rect x="160" y="270" width="86" height="120" opacity="0.7"/>
+    <rect x="266" y="270" width="86" height="120" opacity="0.7"/>
+    <!-- Door Handles -->
+    <rect x="235" y="165" width="6" height="25" opacity="0.8"/>
+    <rect x="271" y="165" width="6" height="25" opacity="0.8"/>
+    <rect x="235" y="325" width="6" height="25" opacity="0.8"/>
+    <rect x="271" y="325" width="6" height="25" opacity="0.8"/>
+    <!-- Vertical Supports -->
+    <rect x="150" y="100" width="10" height="140" opacity="0.6"/>
+    <rect x="352" y="100" width="10" height="140" opacity="0.6"/>
+    <rect x="150" y="260" width="10" height="140" opacity="0.6"/>
+    <rect x="352" y="260" width="10" height="140" opacity="0.6"/>
+    <!-- Interior Shelves -->
+    <line x1="165" y1="166" x2="241" y2="166" opacity="0.5"/>
+    <line x1="271" y1="166" x2="347" y2="166" opacity="0.5"/>
+    <!-- Kick Plate (Toe Kick) -->
+    <rect x="160" y="400" width="192" height="15" opacity="0.8"/>
+    <!-- Hinge Detail -->
+    <circle cx="166" cy="210" r="2" opacity="0.5"/>
+    <circle cx="346" cy="210" r="2" opacity="0.5"/>
+  </g>
+  
+  <!-- Dimension Lines -->
+  <g stroke="#ffffff" stroke-width="1" opacity="0.5" fill="none">
+    <!-- Width -->
+    <line x1="130" y1="430" x2="362" y2="430"/>
+    <line x1="150" y1="400" x2="150" y2="440"/>
+    <line x1="362" y1="400" x2="362" y2="440"/>
+    <text x="256" y="455" fill="#ffffff" font-size="9" text-anchor="middle" opacity="0.6">W=760mm</text>
+    <!-- Total Height -->
+    <line x1="110" y1="100" x2="110" y2="415"/>
+    <text x="95" y="260" fill="#ffffff" font-size="9" text-anchor="end" opacity="0.6">H=2200mm</text>
+    <!-- Countertop Height -->
+    <line x1="380" y1="252" x2="380" y2="415"/>
+    <line x1="375" y1="252" x2="385" y2="252"/>
+    <line x1="375" y1="415" x2="385" y2="415"/>
+    <text x="425" y="330" fill="#ffffff" font-size="9" text-anchor="end" opacity="0.6">H=900mm</text>
+  </g>
+</svg>
