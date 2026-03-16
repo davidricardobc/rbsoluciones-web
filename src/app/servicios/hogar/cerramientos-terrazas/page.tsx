@@ -29,7 +29,7 @@ export default function CerramientosTerrazasPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="/images/portfolio/cerramiento-vidrio.png"
+                src="/images/portfolio/cerramiento-vidrio.webp"
                 alt="Cerramiento de Terraza"
                 width={800}
                 height={600}

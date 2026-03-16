@@ -29,7 +29,7 @@ export default function WPCPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="/images/portfolio/terraza-wpc.png"
+                src="/images/portfolio/terraza-wpc.webp"
                 alt="Terraza WPC"
                 width={800}
                 height={600}

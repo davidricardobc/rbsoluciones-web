@@ -11,22 +11,22 @@ const bedTypes = [
   {
     title: "Cama Queen en Pino",
     description: "4 cajones integrados, madera natural",
-    image: "/images/portfolio/cama-pino-cajones.png",
+    image: "/images/portfolio/cama-pino-cajones.webp",
   },
   {
     title: "Cama Moderna Minimalista",
     description: "LED integrado, diseño contemporáneo",
-    image: "/images/portfolio/cama-moderna-led.png",
+    image: "/images/portfolio/cama-moderna-led.webp",
   },
   {
     title: "Cama Rústica",
     description: "Estilo casa de campo, cabecera alta",
-    image: "/images/portfolio/cama-rustica.png",
+    image: "/images/portfolio/cama-rustica.webp",
   },
   {
     title: "Litera Infantil",
     description: "Pino blanco, cama extra abajo",
-    image: "/images/portfolio/cama-litera-infantil.png",
+    image: "/images/portfolio/cama-litera-infantil.webp",
   },
 ];
 

@@ -29,7 +29,7 @@ export default function MontajesMetalMecanicosPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="/images/portfolio/cocina-industrial.png"
+                src="/images/portfolio/cocina-industrial.webp"
                 alt="Estructura Metálica Industrial"
                 width={800}
                 height={600}

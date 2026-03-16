@@ -29,7 +29,7 @@ export default function PisoSPCPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="/images/portfolio/piso-spc.png"
+                src="/images/portfolio/piso-spc.webp"
                 alt="Piso SPC"
                 width={800}
                 height={600}
@@ -78,7 +78,7 @@ export default function PisoSPCPage() {
             </h3>
             <div className="max-w-3xl mx-auto">
               <Image
-                src="/images/portfolio/piso-instalado-real.png"
+                src="/images/portfolio/piso-instalado-real.webp"
                 alt="Piso SPC Instalado - Proyecto Real"
                 width={800}
                 height={600}

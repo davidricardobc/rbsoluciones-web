@@ -10,28 +10,28 @@ const portfolioItems = [
     title: "Cama con Cajones en Pino",
     category: "Camas",
     description: "4 cajones integrados, madera natural. Disponible: Sencilla a King",
-    image: "/images/portfolio/cama-pino-cajones.png",
+    image: "/images/portfolio/cama-pino-cajones.webp",
   },
   {
     id: 2,
     title: "Cama Moderna con LED",
     category: "Camas",
     description: "Iluminación LED integrada, diseño contemporáneo. Todas las medidas",
-    image: "/images/portfolio/cama-moderna-led.png",
+    image: "/images/portfolio/cama-moderna-led.webp",
   },
   {
     id: 3,
     title: "Cama Rústica",
     category: "Camas",
     description: "Estilo casa de campo, cabecera alta. Sencilla a King",
-    image: "/images/portfolio/cama-rustica.png",
+    image: "/images/portfolio/cama-rustica.webp",
   },
   {
     id: 4,
     title: "Litera Infantil",
     category: "Camas",
     description: "Pino blanco, ideal para familias. Personalizable",
-    image: "/images/portfolio/cama-litera-infantil.png",
+    image: "/images/portfolio/cama-litera-infantil.webp",
   },
   // COCINAS
   {
@@ -39,14 +39,14 @@ const portfolioItems = [
     title: "Cocina Modular Moderna",
     category: "Cocinas",
     description: "Isla central, acabados premium",
-    image: "/images/portfolio/cocina-modular.png",
+    image: "/images/portfolio/cocina-modular.webp",
   },
   {
     id: 6,
     title: "Cocina Industrial",
     category: "Cocinas",
     description: "Estructura metálica expuesta, estilo loft",
-    image: "/images/portfolio/cocina-industrial.png",
+    image: "/images/portfolio/cocina-industrial.webp",
   },
   {
     id: 7,
@@ -68,7 +68,7 @@ const portfolioItems = [
     title: "Closet de Lujo Tipo Boutique",
     category: "Closets",
     description: "Madera, vidrio e iluminación LED",
-    image: "/images/portfolio/closet-lujo.png",
+    image: "/images/portfolio/closet-lujo.webp",
   },
   {
     id: 10,
@@ -119,7 +119,7 @@ const portfolioItems = [
     title: "Centro de Entretenimiento",
     category: "Hogar",
     description: "Madera + metal, estantes con LED",
-    image: "/images/portfolio/centro-entretenimiento.png",
+    image: "/images/portfolio/centro-entretenimiento.webp",
   },
   {
     id: 18,
@@ -134,21 +134,21 @@ const portfolioItems = [
     title: "PVC Marmolizado",
     category: "Acabados",
     description: "Paredes tipo mármol, acabado premium",
-    image: "/images/portfolio/pvc-marmolizado.png",
+    image: "/images/portfolio/pvc-marmolizado.webp",
   },
   {
     id: 20,
     title: "Piso SPC",
     category: "Acabados",
     description: "Madera plástica, alta durabilidad",
-    image: "/images/portfolio/piso-spc.png",
+    image: "/images/portfolio/piso-spc.webp",
   },
   {
     id: 21,
     title: "Instalación Piso SPC",
     category: "Acabados",
     description: "Trabajo ejecutado por RB Soluciones",
-    image: "/images/portfolio/piso-instalado-real.png",
+    image: "/images/portfolio/piso-instalado-real.webp",
   },
   // EXTERIORES
   {
@@ -156,28 +156,28 @@ const portfolioItems = [
     title: "Terraza WPC",
     category: "Exteriores",
     description: "Deck madera plástica, outdoor living",
-    image: "/images/portfolio/terraza-wpc.png",
+    image: "/images/portfolio/terraza-wpc.webp",
   },
   {
     id: 23,
     title: "Cerramiento Aluminio/Vidrio",
     category: "Exteriores",
     description: "Terraza acristalada, vistas panorámicas",
-    image: "/images/portfolio/cerramiento-vidrio.png",
+    image: "/images/portfolio/cerramiento-vidrio.webp",
   },
   {
     id: 24,
     title: "Pérgola Moderna con LED",
     category: "Exteriores",
     description: "Estructura metal + madera, iluminación",
-    image: "/images/portfolio/pergola-moderna.png",
+    image: "/images/portfolio/pergola-moderna.webp",
   },
   {
     id: 25,
     title: "Pérgola Listones Madera",
     category: "Exteriores",
     description: "Sombra filtrada, diseño contemporáneo",
-    image: "/images/portfolio/pergola-listones.png",
+    image: "/images/portfolio/pergola-listones.webp",
   },
   // PÉRGOLAS NUEVAS (Restrepo)
   {
@@ -214,7 +214,7 @@ const portfolioItems = [
     title: "Techo Industrial Metálico",
     category: "Estructuras",
     description: "Estructura acero, acabado moderno",
-    image: "/images/portfolio/techo-industrial.png",
+    image: "/images/portfolio/techo-industrial.webp",
   },
   {
     id: 31,
@@ -243,7 +243,7 @@ const portfolioItems = [
     title: "Baño Elegante",
     category: "Baños",
     description: "Doble lavamanos, espejos iluminados",
-    image: "/images/portfolio/bano-elegante.png",
+    image: "/images/portfolio/bano-elegante.webp",
   },
 ];
 

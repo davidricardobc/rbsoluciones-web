@@ -31,7 +31,7 @@ export default function CocinasModularesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="/images/portfolio/cocina-modular.png"
+                src="/images/portfolio/cocina-modular.webp"
                 alt="Cocina Modular Moderna"
                 width={800}
                 height={600}
