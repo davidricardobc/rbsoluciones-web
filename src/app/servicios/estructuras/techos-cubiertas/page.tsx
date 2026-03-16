@@ -30,7 +30,7 @@ export default function TechosCubiertasPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <div>
               <Image
-                src="/images/portfolio/pergola-moderna.png"
+                src="/images/portfolio/pergola-moderna.webp"
                 alt="Pérgola Moderna"
                 width={800}
                 height={600}
@@ -61,7 +61,7 @@ export default function TechosCubiertasPage() {
             </div>
             <div className="order-1 lg:order-2">
               <Image
-                src="/images/portfolio/pergola-listones.png"
+                src="/images/portfolio/pergola-listones.webp"
                 alt="Pérgola Listones Madera"
                 width={800}
                 height={600}
@@ -74,7 +74,7 @@ export default function TechosCubiertasPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="/images/portfolio/techo-industrial.png"
+                src="/images/portfolio/techo-industrial.webp"
                 alt="Techo Industrial"
                 width={800}
                 height={600}

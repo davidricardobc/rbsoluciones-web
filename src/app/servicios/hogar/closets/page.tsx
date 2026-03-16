@@ -29,7 +29,7 @@ export default function ClosetsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="/images/portfolio/closet-lujo.png"
+                src="/images/portfolio/closet-lujo.webp"
                 alt="Closet de Lujo"
                 width={800}
                 height={600}

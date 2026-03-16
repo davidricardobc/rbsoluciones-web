@@ -29,7 +29,7 @@ export default function CentrosEntretenimientoPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="/images/portfolio/centro-entretenimiento.png"
+                src="/images/portfolio/centro-entretenimiento.webp"
                 alt="Centro de Entretenimiento"
                 width={800}
                 height={600}
