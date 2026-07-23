@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rbsoluciones.co/sitemap.xml
+Host: https://rbsoluciones.co
