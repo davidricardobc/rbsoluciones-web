@@ -37,7 +37,7 @@ export function ProcessSteps() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.span
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
@@ -46,7 +46,7 @@ export function ProcessSteps() {
             Nuestro Proceso
           </motion.span>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
@@ -55,7 +55,7 @@ export function ProcessSteps() {
             Tu proyecto, de la idea a la realidad
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
@@ -76,7 +76,7 @@ export function ProcessSteps() {
               return (
                 <motion.div
                   key={step.number}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={false}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.15 }}
                   viewport={{ once: true }}

@@ -33,7 +33,7 @@ function ServiceCard({ service, index }: { service: typeof homeServices[0]; inde
   const Icon = service.icon;
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
@@ -68,7 +68,7 @@ export function ServicesPreview() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.span
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
@@ -78,7 +78,7 @@ export function ServicesPreview() {
           </motion.span>
           
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
@@ -87,7 +87,7 @@ export function ServicesPreview() {
             Soluciones para cada necesidad
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
@@ -100,7 +100,7 @@ export function ServicesPreview() {
         {/* Home Services */}
         <div className="mb-16">
           <motion.h3
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
@@ -119,7 +119,7 @@ export function ServicesPreview() {
         {/* Structure Services */}
         <div className="mb-12">
           <motion.h3
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
@@ -137,7 +137,7 @@ export function ServicesPreview() {
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
