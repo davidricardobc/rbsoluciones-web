@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppWidget } from "@/components/WhatsAppWidget";
+import { businessSchema, homeDescription, homeTitle } from "@/lib/local-seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,14 +21,16 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL("https://rbsoluciones.co"),
   title: {
-    default: "RB Soluciones Constructivas | Cocinas y Estructuras Metálicas en Meta",
+    default: homeTitle,
     template: "%s | RB Soluciones Constructivas",
   },
-  description:
-    "Cocinas modulares, cerramientos, techos, cubiertas y estructuras metálicas en Restrepo, Villavicencio y Meta. 26 años de experiencia en soluciones constructivas.",
+  description: homeDescription,
   keywords: [
-    "cocinas modulares en Villavicencio",
+    "techos metálicos en Restrepo Meta",
     "estructuras metálicas en Restrepo Meta",
+    "estructuras metálicas en Villavicencio",
+    "carpintería a medida Restrepo",
+    "cocinas modulares en Villavicencio",
     "techos y cubiertas en Villavicencio",
     "cerramientos para terrazas",
     "RB Soluciones Constructivas",
@@ -75,6 +78,10 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppWidget />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
+        />
       </body>
     </html>
   );
