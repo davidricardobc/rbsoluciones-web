@@ -33,7 +33,7 @@ export default function PisoSPCPage() {
                 alt="Piso SPC"
                 width={800}
                 height={600}
-                className="rounded-2xl shadow-xl"
+                className="service-photo"
               />
             </div>
             <div>
@@ -82,7 +82,7 @@ export default function PisoSPCPage() {
                 alt="Piso SPC Instalado - Proyecto Real"
                 width={800}
                 height={600}
-                className="rounded-2xl shadow-xl"
+                className="service-photo"
               />
               <p className="text-center text-slate-500 mt-4">
                 Instalación real de piso SPC por RB Soluciones Constructivas

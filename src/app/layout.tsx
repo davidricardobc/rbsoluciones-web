@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
+import { VisualMotion } from "@/components/VisualMotion";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppWidget } from "@/components/WhatsAppWidget";
 import { businessSchema, homeDescription, homeTitle } from "@/lib/local-seo";
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: "./fonts/inter-latin.woff2",
+  weight: "100 900",
   variable: "--font-inter",
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
+const spaceGrotesk = localFont({
+  src: "./fonts/space-grotesk-latin.woff2",
+  weight: "300 700",
   variable: "--font-space",
   display: "swap",
 });
@@ -74,10 +77,12 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="font-sans antialiased bg-white text-slate-800">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppWidget />
+        <VisualMotion>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <WhatsAppWidget />
+        </VisualMotion>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}

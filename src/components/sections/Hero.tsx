@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CheckCircle, Cog, Gauge } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative  flex items-center overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
       <div className="absolute inset-0 opacity-30">
@@ -17,23 +17,23 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+      <div className="relative max-w-7xl w-full mx-auto px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-[1.15fr_1fr] gap-12 items-center">
         <div className="max-w-3xl">
           <motion.div
             initial={false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3 }}
             className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium mb-6"
           >
-            <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+            <span className="w-2 h-2 bg-accent rounded-full" />
             26 años de experiencia en metalmecánica
           </motion.div>
 
           <motion.h1
             initial={false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6 font-heading"
+            transition={{ duration: 0.3, delay: 0.1 }}
+            className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-slate-900 leading-tight mb-6 font-heading"
           >
             Construimos espacios que{" "}
             <span className="text-accent">perduran</span>. Tecnología, experiencia y compromiso.
@@ -42,7 +42,7 @@ export function Hero() {
           <motion.p
             initial={false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
             className="text-lg sm:text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl"
           >
             Transformamos hogares e industrias en Restrepo, Villavicencio y Bogotá. 
@@ -52,8 +52,8 @@ export function Hero() {
           <motion.div
             initial={false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 mb-10"
+            transition={{ duration: 0.3, delay: 0.3 }}
+            className="flex flex-col xl:flex-row gap-4 mb-10"
           >
             <Link
               href="/cotizar"
@@ -73,7 +73,7 @@ export function Hero() {
           <motion.div
             initial={false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.3, delay: 0.4 }}
             className="flex flex-wrap gap-6 text-sm text-slate-600"
           >
             {[
@@ -82,24 +82,18 @@ export function Hero() {
               "Garantía en todas las instalaciones",
             ].map((item) => (
               <div key={item} className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
                 <span>{item}</span>
               </div>
             ))}
           </motion.div>
         </div>
+        <figure className="relative overflow-hidden rounded-xl aspect-[4/3] lg:aspect-[4/5]">
+          <Image src="/images/portfolio/pergola-terraza-amoblada.jpg" alt="Pérgola instalada por RB Soluciones en una terraza amoblada" fill priority sizes="(max-width: 1023px) 100vw, 45vw" className="object-cover" />
+          <figcaption className="absolute bottom-0 inset-x-0 bg-slate-900/85 text-white px-6 py-4 text-sm">Pérgola · Proyecto realizado</figcaption>
+        </figure>
       </div>
 
-      {/* Decorative Element */}
-      <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-4/5">
-        <div className="relative w-full h-full">
-          <div className="absolute inset-0 bg-gradient-to-l from-slate-100 to-transparent" />
-          <div className="absolute right-8 top-1/2 -translate-y-1/2 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
-          <div className="absolute right-16 bottom-1/4 w-48 h-48 bg-steel/10 rounded-full blur-2xl" />
-          
-        
-        </div>
-      </div>
     </section>
   );
 }

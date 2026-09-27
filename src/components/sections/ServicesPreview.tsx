@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { ServicePhoto } from "@/components/ServicePhoto";
 import { 
   Utensils, 
   Shirt, 
@@ -35,14 +36,15 @@ function ServiceCard({ service, index }: { service: typeof homeServices[0]; inde
     <motion.div
       initial={false}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.3, delay: Math.min(index * 0.04, 0.1) }}
       viewport={{ once: true }}
       className="group"
     >
       <Link
         href={service.href}
-        className="block bg-white rounded-2xl p-6 border border-slate-100 hover:border-accent/20 hover:shadow-xl transition-all duration-300 h-full"
+        className="service-card block bg-white rounded-xl p-6 border border-slate-200 transition-all duration-300 h-full"
       >
+        <ServicePhoto href={service.href} />
         <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors mb-4">
           <Icon className="w-6 h-6 text-accent group-hover:text-white" />
         </div>
@@ -53,7 +55,7 @@ function ServiceCard({ service, index }: { service: typeof homeServices[0]; inde
         <p className="text-slate-600 text-sm leading-relaxed mb-4">
           {service.description}
         </p>
-        <span className="inline-flex items-center gap-1 text-accent text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+        <span className="inline-flex items-center gap-1 text-accent text-sm font-medium  transition-opacity">
           Ver más <ArrowRight className="w-4 h-4" />
         </span>
       </Link>
@@ -70,7 +72,7 @@ export function ServicesPreview() {
           <motion.span
             initial={false}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3 }}
             viewport={{ once: true }}
             className="text-accent font-semibold text-sm uppercase tracking-wider mb-4 block"
           >
@@ -80,7 +82,7 @@ export function ServicesPreview() {
           <motion.h2
             initial={false}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
             viewport={{ once: true }}
             className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 font-heading"
           >
@@ -89,7 +91,7 @@ export function ServicesPreview() {
           <motion.p
             initial={false}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
             viewport={{ once: true }}
             className="text-lg text-slate-600"
           >
@@ -102,14 +104,14 @@ export function ServicesPreview() {
           <motion.h3
             initial={false}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3 }}
             viewport={{ once: true }}
             className="text-xl font-semibold text-slate-900 mb-8 flex items-center gap-3"
           >
             <span className="w-8 h-1 bg-accent rounded-full" />
             Servicios para el Hogar
           </motion.h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {homeServices.map((service, index) => (
               <ServiceCard key={service.title} service={service} index={index} />
             ))}
@@ -121,7 +123,7 @@ export function ServicesPreview() {
           <motion.h3
             initial={false}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3 }}
             viewport={{ once: true }}
             className="text-xl font-semibold text-slate-900 mb-8 flex items-center gap-3"
           >
@@ -139,7 +141,7 @@ export function ServicesPreview() {
         <motion.div
           initial={false}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           viewport={{ once: true }}
           className="text-center"
         >

@@ -278,6 +278,7 @@ export default function PortafolioPage() {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
+                aria-pressed={filter === activeFilter}
                 className={`px-4 py-2 rounded-full font-medium transition-colors text-sm sm:text-base ${
                   filter === activeFilter
                     ? "bg-accent text-white"
@@ -290,22 +291,22 @@ export default function PortafolioPage() {
           </div>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
             {filteredItems.map((item) => (
               <div
                 key={item.id}
-                className="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300"
+                className="project-card group bg-white rounded-xl overflow-hidden border border-slate-200"
               >
                 <div className="aspect-[4/3] bg-slate-200 relative overflow-hidden">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute bottom-4 left-4 right-4">
                     <span className="inline-block text-white text-xs px-3 py-1 rounded-full bg-accent">
                       {item.category}
                     </span>

@@ -7,15 +7,15 @@
   --font-heading: var(--font-space), ui-sans-serif, system-ui, sans-serif;
   
   /* Brand Colors */
-  --color-primary: #1E293B;
-  --color-primary-dark: #0F172A;
-  --color-primary-light: #334155;
-  --color-accent: #0369A1;
-  --color-accent-hover: #0284C7;
-  --color-accent-light: #E0F2FE;
+  --color-primary: #292d30;
+  --color-primary-dark: #191d20;
+  --color-primary-light: #41494e;
+  --color-accent: #496574;
+  --color-accent-hover: #344d5b;
+  --color-accent-light: #eaf0f3;
   --color-steel: #94A3B8;
   --color-steel-light: #CBD5E1;
-  --color-whatsapp: #25D366;
+  --color-whatsapp: #147d42;
 }
 
 :root {
@@ -65,7 +65,7 @@ html {
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
+  animation: fade-in-up 0.3s ease-out forwards;
 }
 
 @keyframes pulse-slow {
@@ -79,4 +79,43 @@ html {
 
 .animate-pulse-slow {
   animation: pulse-slow 2s ease-in-out infinite;
+}
+
+/* Industrial palette: existing layout, quieter surfaces and a steel accent. */
+@theme inline {
+  --color-slate-50: #f6f7f7;
+  --color-slate-100: #eff1f2;
+  --color-slate-200: #dce1e3;
+  --color-slate-300: #bec8ce;
+  --color-slate-500: #596970;
+  --color-slate-600: #4b5960;
+  --color-slate-700: #39434a;
+  --color-slate-800: #292f33;
+  --color-slate-900: #1c2226;
+}
+body { line-height: 1.65; }
+h1, h2, h3 { text-wrap: balance; letter-spacing: -0.035em; }
+h1, h2 { line-height: 1.12; }
+h3 { line-height: 1.3; }
+:focus-visible { outline: 3px solid #496574; outline-offset: 5px; }
+.bg-slate-900 :focus-visible, footer :focus-visible { outline-color: #bec8ce; }
+a, button { transition-duration: 300ms; }
+section { scroll-margin-top: 6rem; }
+.service-card { overflow: hidden; }
+.service-card-photo { margin: -1.5rem -1.5rem 1.5rem; }
+.service-card:has(.service-card-photo) > div:not(.service-card-photo) { display: none; }
+.service-card:hover, .service-card:focus-visible { border-color: #496574; transform: translateY(-3px); }
+.service-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0.75rem; }
+.is-revealed { animation: fade-in-up 350ms cubic-bezier(0.2, 0, 0, 1) both; }
+@media (min-width: 1024px) {
+  main section.py-20 { padding-block: 7rem; }
+}
+@media (max-width: 639px) {
+  main section > div { padding-inline: 1.5rem; }
+  header a, header button { min-height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .service-card:hover, .service-card:focus-visible, .group:hover img { transform: none; }
 }

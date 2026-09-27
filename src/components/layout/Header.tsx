@@ -51,10 +51,11 @@ export function Header() {
               href="https://wa.me/573183773905"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 text-sm text-slate-600 hover:text-whatsapp transition-colors"
+              className="flex items-center gap-2 text-sm text-slate-600 hover:text-whatsapp transition-colors"
             >
-              <Phone className="w-4 h-4" />
-              <span className="font-medium">WhatsApp</span>
+              <Phone className="w-4 h-4" aria-hidden="true" />
+              <span className="hidden sm:inline font-medium">WhatsApp</span>
+              <span className="sr-only sm:hidden">WhatsApp</span>
             </a>
             <Link
               href="/cotizar"
@@ -67,7 +68,9 @@ export function Header() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden p-2 text-slate-600 hover:text-slate-900"
-              aria-label="Toggle menu"
+              aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -79,6 +82,8 @@ export function Header() {
       <motion.div
         initial={false}
         animate={mobileMenuOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+        id="mobile-navigation"
+        inert={!mobileMenuOpen}
         className="lg:hidden overflow-hidden bg-white border-t border-slate-100"
       >
         <nav className="px-4 py-4 space-y-2">

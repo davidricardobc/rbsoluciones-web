@@ -2,17 +2,12 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const isVisible = true;
 
-  useEffect(() => {
-    // Show widget after 3 seconds
-    const timer = setTimeout(() => setIsVisible(true), 3000);
-    return () => clearTimeout(timer);
-  }, []);
 
   const phoneNumber = "573183773905"; // Replace with actual number
   const message = encodeURIComponent(
@@ -40,7 +35,7 @@ export function WhatsAppWidget() {
               >
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                    <div className="w-2 h-2 bg-green-500 rounded-full" />
                     <span className="text-sm font-medium text-slate-700">En línea</span>
                   </div>
                   <button
@@ -73,7 +68,8 @@ export function WhatsAppWidget() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="w-14 h-14 bg-whatsapp rounded-full shadow-2xl flex items-center justify-center text-white hover:shadow-whatsapp/50 transition-shadow"
-            aria-label="Abrir WhatsApp"
+            aria-label={isOpen ? "Cerrar WhatsApp" : "Abrir WhatsApp"}
+            aria-expanded={isOpen}
           >
             <AnimatePresence mode="wait">
               {isOpen ? (
@@ -100,15 +96,7 @@ export function WhatsAppWidget() {
             </AnimatePresence>
           </motion.button>
 
-          {/* Pulse Animation Ring */}
-          {!isOpen && (
-            <motion.div
-              initial={{ scale: 1, opacity: 0.5 }}
-              animate={{ scale: 1.5, opacity: 0 }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="absolute w-14 h-14 bg-whatsapp rounded-full -z-10"
-            />
-          )}
+
         </motion.div>
       )}
     </AnimatePresence>

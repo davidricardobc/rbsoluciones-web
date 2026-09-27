@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ServicePhoto } from "@/components/ServicePhoto";
 import { 
   Utensils, 
   Shirt, 
@@ -130,9 +131,10 @@ export default function ServiciosPage() {
                 <Link
                   key={service.title}
                   href={service.href}
-                  className="group block bg-slate-50 rounded-2xl p-8 hover:bg-white hover:shadow-xl hover:border-accent/20 border border-transparent transition-all duration-300"
+                  className="service-card group block bg-white rounded-xl p-6 border border-slate-200 transition-all duration-300"
                 >
-                  <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                  <ServicePhoto href={service.href} />
+        <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
                     <Icon className="w-7 h-7 text-accent group-hover:text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-accent transition-colors font-heading">
@@ -171,9 +173,10 @@ export default function ServiciosPage() {
                 <Link
                   key={service.title}
                   href={service.href}
-                  className="group block bg-white rounded-2xl p-8 hover:shadow-xl hover:border-accent/20 border border-slate-200 transition-all duration-300"
+                  className="service-card group block bg-white rounded-xl p-6 border border-slate-200 transition-all duration-300"
                 >
-                  <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                  <ServicePhoto href={service.href} />
+        <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
                     <Icon className="w-7 h-7 text-accent group-hover:text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-accent transition-colors font-heading">

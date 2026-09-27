@@ -34,7 +34,7 @@ export default function TechosCubiertasPage() {
                 alt="Pérgola Moderna"
                 width={800}
                 height={600}
-                className="rounded-2xl shadow-xl"
+                className="service-photo"
               />
             </div>
             <div>
@@ -65,7 +65,7 @@ export default function TechosCubiertasPage() {
                 alt="Pérgola Listones Madera"
                 width={800}
                 height={600}
-                className="rounded-2xl shadow-xl"
+                className="service-photo"
               />
             </div>
           </div>
@@ -78,7 +78,7 @@ export default function TechosCubiertasPage() {
                 alt="Techo Industrial"
                 width={800}
                 height={600}
-                className="rounded-2xl shadow-xl"
+                className="service-photo"
               />
             </div>
             <div>

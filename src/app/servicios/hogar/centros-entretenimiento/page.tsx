@@ -33,7 +33,7 @@ export default function CentrosEntretenimientoPage() {
                 alt="Centro de Entretenimiento"
                 width={800}
                 height={600}
-                className="rounded-2xl shadow-xl"
+                className="service-photo"
               />
             </div>
             <div>

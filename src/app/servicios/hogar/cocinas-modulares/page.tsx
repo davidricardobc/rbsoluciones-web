@@ -31,11 +31,12 @@ export default function CocinasModularesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="/images/portfolio/cocina-modular.webp"
-                alt="Cocina Modular Moderna"
+                src="/images/portfolio/cocina-integral-1.jpg"
+                alt="Cocina integral con isla y acabados en madera clara"
+                sizes="(max-width: 1023px) 100vw, 50vw"
                 width={800}
                 height={600}
-                className="rounded-2xl shadow-xl"
+                className="service-photo"
               />
             </div>
             <div>

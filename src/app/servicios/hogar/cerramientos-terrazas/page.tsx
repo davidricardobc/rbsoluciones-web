@@ -33,7 +33,7 @@ export default function CerramientosTerrazasPage() {
                 alt="Cerramiento de Terraza"
                 width={800}
                 height={600}
-                className="rounded-2xl shadow-xl"
+                className="service-photo"
               />
             </div>
             <div>
