@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "PVC Marmolizado | RB Soluciones Constructivas",
+  title: "PVC Marmolizado",
   description: "Paredes con estética de mármol y resistencia superior. Acabados premium para baños y cocinas.",
 };
 

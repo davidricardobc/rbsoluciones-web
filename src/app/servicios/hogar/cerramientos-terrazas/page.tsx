@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Cerramientos de Terrazas | RB Soluciones Constructivas",
+  title: "Cerramientos de Terrazas",
   description: "Amplía tu espacio habitable protegido del clima. Cerramientos en aluminio y vidrio para terrazas y balcones.",
 };
 

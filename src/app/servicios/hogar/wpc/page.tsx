@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "WPC - Deck y Terrazas | RB Soluciones Constructivas",
+  title: "WPC - Deck y Terrazas",
   description: "Wood Plastic Composite: belleza de madera sin mantenimiento. Ideales para terrazas, decks y exteriores.",
 };
 

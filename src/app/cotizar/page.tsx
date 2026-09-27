@@ -3,7 +3,7 @@ import { QuotationForm } from "@/components/forms/QuotationForm";
 import { CheckCircle, Clock, Shield, FileCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Solicitar Cotización | RB Soluciones Constructivas",
+  title: "Solicitar Cotización",
   description: "Solicita tu cotización gratuita. Un asesor te contactará en menos de 24 horas hábiles con una propuesta personalizada para tu proyecto.",
 };
 

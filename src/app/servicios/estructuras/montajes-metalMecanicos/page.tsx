@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Montajes Metalmecánicos | RB Soluciones Constructivas",
+  title: "Montajes Metalmecánicos",
   description: "Estructuras industriales con soldadura certificada. Montajes metalmecánicos para bodegas, fábricas y proyectos industriales.",
 };
 

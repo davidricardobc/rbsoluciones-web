@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Portafolio | RB Soluciones Constructivas",
+  title: "Portafolio",
   description: "Más de 500 proyectos entregados. Explora nuestro trabajo en cocinas, camas, escritorios, estructuras metálicas, cerramientos y más.",
 };
 

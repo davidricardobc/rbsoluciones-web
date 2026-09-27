@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Proceso de Trabajo | RB Soluciones Constructivas",
+  title: "Proceso de Trabajo",
   description: "Conoce nuestro proceso transparente: desde la consulta inicial hasta la instalación final. Garantía de calidad en cada etapa.",
 };
 

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Camas Personalizadas | RB Soluciones Constructivas",
+  title: "Camas Personalizadas",
   description: "Diseñamos y fabricamos camas personalizadas: Queen, King, literas infantiles y más. Madera de alta calidad con garantía de 10 años.",
 };
 

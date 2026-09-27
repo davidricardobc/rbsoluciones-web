@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Techos y Cubiertas | RB Soluciones Constructivas",
+  title: "Techos y Cubiertas",
   description: "Protección estructural con diseño profesional. Techos metálicos, pérgolas y cubiertas para todo tipo de proyectos.",
 };
 

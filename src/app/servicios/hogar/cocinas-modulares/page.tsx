@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Cocinas Modulares | RB Soluciones Constructivas",
+  title: "Cocinas Modulares",
   description: "Diseñamos cocinas modulares funcionales y elegantes que aprovechan cada centímetro. 26 años de experiencia en Restrepo, Villavicencio y Bogotá.",
 };
 

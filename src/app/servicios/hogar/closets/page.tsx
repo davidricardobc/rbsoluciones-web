@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Closets | RB Soluciones Constructivas",
+  title: "Closets",
   description: "Closets personalizados con organización inteligente adaptada a tu forma de vivir. Diseño de lujo tipo boutique para tu hogar.",
 };
 

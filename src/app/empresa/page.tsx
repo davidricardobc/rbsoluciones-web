@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { CheckCircle, Award, Users, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Nuestra Empresa | RB Soluciones Constructivas",
+  title: "Nuestra Empresa",
   description: "26 años de experiencia en metalmecánica y construcción. Conoce nuestra historia, valores y compromiso con la calidad.",
 };
 

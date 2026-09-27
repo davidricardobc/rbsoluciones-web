@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Servicios | RB Soluciones Constructivas",
+  title: "Servicios",
   description: "Cocinas modulares, estructuras metálicas, cerramientos y más. Soluciones integrales para hogar e industria en Restrepo, Villavicencio y Bogotá.",
 };
 

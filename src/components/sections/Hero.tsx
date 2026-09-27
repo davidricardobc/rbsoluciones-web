@@ -26,7 +26,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium mb-6"
           >
             <span className="w-2 h-2 bg-accent rounded-full" />
-            26 años de experiencia en metalmecánica
+            RB Soluciones Constructivas · 26 años en metalmecánica
           </motion.div>
 
           <motion.h1

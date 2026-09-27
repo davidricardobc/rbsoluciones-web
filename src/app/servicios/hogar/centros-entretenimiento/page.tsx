@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Centros de Entretenimiento | RB Soluciones Constructivas",
+  title: "Centros de Entretenimiento",
   description: "Diseñamos el corazón de tu sala: centros de entretenimiento integrados y funcionales en madera y metal.",
 };
 

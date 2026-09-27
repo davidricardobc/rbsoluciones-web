@@ -5,7 +5,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppWidget } from "@/components/WhatsAppWidget";
-import { businessSchema, homeDescription, homeTitle } from "@/lib/local-seo";
+import { businessSchema, homeDescription, homeTitle, websiteSchema } from "@/lib/local-seo";
 
 const inter = localFont({
   src: "./fonts/inter-latin.woff2",
@@ -85,7 +85,7 @@ export default function RootLayout({
         </VisualMotion>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify([businessSchema, websiteSchema]) }}
         />
       </body>
     </html>

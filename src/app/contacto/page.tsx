@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contacto | RB Soluciones Constructivas",
+  title: "Contacto",
   description: "Contáctanos en Restrepo, Villavicencio o Bogotá. Estamos para ayudarte con tu proyecto de construcción o metalmecánica.",
 };
 

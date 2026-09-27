@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidad | RB Soluciones Constructivas",
+  title: "Política de Privacidad",
   description: "Conoce cómo protegemos tu información personal. Comprometidos con la seguridad de tus datos.",
 };
 
