@@ -1,0 +1,4 @@
+:HL["/_next/static/chunks/65123ba91f0b25a8.css","style"]
+:HL["/_next/static/media/inter_latin-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/space_grotesk_latin-s.p.4564287c.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"buildId":"ZZinsgCJNJJM_JEp7hM25","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"servicios","paramType":null,"paramKey":"servicios","hasRuntimePrefetch":false,"slots":{"children":{"name":"carpinteria","paramType":null,"paramKey":"carpinteria","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
