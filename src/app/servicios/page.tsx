@@ -88,7 +88,7 @@ const estructuraServices = [
   { 
     icon: Layers, 
     title: "Adecuaciones Estructurales", 
-    description: "Refuerzos, ampliaciones y ajustes sobre estructuras existentes con enfoque t?cnico y ejecuci?n profesional.",
+    description: "Refuerzos, ampliaciones y ajustes sobre estructuras existentes con enfoque técnico y ejecución profesional.",
     href: "/contacto"
   },
 ];
@@ -134,7 +134,7 @@ export default function ServiciosPage() {
                   href={service.href}
                   className="service-card group block bg-white rounded-xl p-6 border border-slate-200 transition-all duration-300"
                 >
-                  <ServicePhoto href={service.href} />
+                  <ServicePhoto href={service.href} title={service.title} />
         <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
                     <Icon className="w-7 h-7 text-accent group-hover:text-white" />
                   </div>
@@ -176,7 +176,7 @@ export default function ServiciosPage() {
                   href={service.href}
                   className="service-card group block bg-white rounded-xl p-6 border border-slate-200 transition-all duration-300"
                 >
-                  <ServicePhoto href={service.href} />
+                  <ServicePhoto href={service.href} title={service.title} />
         <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
                     <Icon className="w-7 h-7 text-accent group-hover:text-white" />
                   </div>
