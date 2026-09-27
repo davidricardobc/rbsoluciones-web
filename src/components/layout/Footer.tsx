@@ -17,6 +17,7 @@ const footerLinks = {
     { label: "Sobre Nosotros", href: "/empresa" },
     { label: "Proceso de Trabajo", href: "/proceso" },
     { label: "Portafolio", href: "/portafolio" },
+    { label: "Blog", href: "/blog/" },
     { label: "Cotizar", href: "/cotizar" },
   ],
   legal: [
