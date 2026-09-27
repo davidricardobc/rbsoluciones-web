@@ -58,11 +58,7 @@ npm run lint     # Ejecutar ESLint
 
 ## 🔧 Configuración para Deploy
 
-1. Actualizar número de WhatsApp en:
-   - `src/components/WhatsAppWidget.tsx`
-   - `src/components/layout/Header.tsx`
-   - `src/components/layout/Footer.tsx`
-   - `src/app/contacto/page.tsx`
+1. Número y mensajes de WhatsApp: todo sale de `src/lib/whatsapp.ts`.
 
 2. Actualizar información de contacto en:
    - `src/app/contacto/page.tsx`
@@ -90,21 +86,19 @@ npm run lint     # Ejecutar ESLint
 ### Opción 1: Vercel (Recomendado)
 1. Conectar repo en Vercel
 2. Configurar dominio personalizado
-3. Deploy automático con cada push
+3. Deploy ## 🚀 Deploy
 
-### Opción 2: GitHub Pages
-```bash
-npm run build
-# Subir carpeta `dist` a GitHub Pages
-```
+El sitio en vivo (rbsoluciones.co) lo sirve **GitHub Pages desde la carpeta
+`docs/` de la rama `main`** (modo legacy). La rama `gh-pages` no se usa.
 
-### Opción 3: Netlify
-- Drag & drop de la carpeta `dist`
+1. Verificar: `npx eslint src`, `node --test tests/quotes.test.mjs` y `npm run build`
+   (exporta a `dist/`).
+2. Reemplazar el build de `docs/` por el contenido de `dist/`, conservando
+   `docs/rbsoluciones-parteA.md` y `docs/screenshots/`. Deben quedar
+   `docs/CNAME` (`rbsoluciones.co`) y `docs/.nojekyll`.
+3. Restaurar `dist/` (está versionado): `git checkout -- dist && git clean -fdq dist`.
+4. Commit `deploy: ...` y push a `main`. Pages reconstruye en 1 o 2 minutos.
+5. Confirmar que el build terminó con ese commit:
+   `gh api repos/davidricardobc/rbsoluciones-web/pages/builds/latest`.
 
-## 📄 Licencia
-
-© 2026 RB Soluciones Constructivas. Todos los derechos reservados.
-
----
-
-Desarrollado con ❤️ para RB Soluciones Constructivas
+Revertir: `git revert --no-edit <commit de deploy>` y push a `main`.

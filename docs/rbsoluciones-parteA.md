@@ -112,16 +112,17 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
    reseñas ocultas, WhatsApp móvil y sitemap/canonical coherentes.
 3. Probar navegación móvil, enlaces, exportación y recepción de cotización en
    ensayo. Revisar fotos, cifras y afirmaciones heredadas del sitio.
-4. Según el usuario, se publica desde la rama gh-pages. La configuración local es
+4. Se publica con GitHub Pages desde la carpeta `docs/` de `main` (verificado
+   el 27-sep-2026; la rama gh-pages no se usa). La configuración local es
    `output: 'export'`, `distDir: 'dist'`, imágenes sin optimizador y trailingSlash.
    Verificar el directorio de salida tras un build satisfactorio. No usar
    `next start` para servir una exportación estática.
 5. Presentar el resultado revisable a David y obtener aprobación expresa antes de
    publicar. El responsable confirma en GitHub Pages la rama/carpeta configurada,
    guarda la revisión anterior para revertir y publica únicamente el contenido
-   exportado en la raíz correspondiente de gh-pages, con CNAME `rbsoluciones.co`
-   y `.nojekyll`. Verifica HTTPS, portada, rutas, robots, sitemap y contacto.
-   No se verificó la configuración remota ni se efectuó ninguna de esas acciones.
+   exportado en `docs/` de `main`, con CNAME `rbsoluciones.co` y `.nojekyll`.
+   Verifica HTTPS, portada, rutas, robots, sitemap y contacto. Proceso completo
+   en la sección Deploy del README.
 
 ## Material que debe conseguir David
 
