@@ -33,6 +33,7 @@ const structServicesOptions = [
 
 export function QuotationForm() {
   const [step, setStep] = useState(1);
+  const [whatsAppReady, setWhatsAppReady] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -132,7 +133,9 @@ export function QuotationForm() {
     setIsLoading(true);
     setSubmitError(null);
 
-    const result = await submitQuote(formData, process.env.NEXT_PUBLIC_RB_QUOTES_WEBHOOK_URL);
+    const result = await submitQuote(formData, process.env.NEXT_PUBLIC_RB_QUOTES_WEBHOOK_URL, (url) => {
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
 
     if (!result.ok) {
       setSubmitError(result.message || "No pudimos enviar tu solicitud. Intenta de nuevo o escríbenos por WhatsApp.");
@@ -140,6 +143,7 @@ export function QuotationForm() {
       return;
     }
 
+    setWhatsAppReady(result.channel === "whatsapp");
     setSubmissionReference(result.reference || null);
     setIsSubmitted(true);
 
@@ -158,19 +162,22 @@ export function QuotationForm() {
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
+        role="status"
         className="bg-white rounded-2xl p-8 lg:p-12 text-center shadow-lg"
       >
         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle className="w-10 h-10 text-green-600" />
         </div>
         <h2 className="text-2xl font-bold text-slate-900 mb-4 font-heading">
-          ¡Recibimos tu solicitud!
+          {whatsAppReady ? "Tu solicitud está lista en WhatsApp, solo presiona enviar" : "¡Recibimos tu solicitud!"}
         </h2>
-        <p className="text-slate-600 mb-2">
+        {submissionReference && <p className="text-slate-600 mb-2">
           Tu número de cotización: <span className="font-mono font-bold text-accent">{submissionReference}</span>
-        </p>
+        </p>}
         <p className="text-slate-600 mb-8">
-          Tu solicitud fue registrada. Puedes continuar la conversación por WhatsApp con esta referencia.
+          {whatsAppReady
+            ? "Revisa los datos y envía el mensaje para completar tu solicitud. Si WhatsApp no se abrió, usa el botón de abajo."
+            : "Tu solicitud fue registrada. Puedes continuar la conversación por WhatsApp con esta referencia."}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a

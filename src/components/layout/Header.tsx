@@ -1,5 +1,7 @@
 "use client";
 
+import { whatsAppUrl } from "@/lib/whatsapp";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Phone, Menu, X } from "lucide-react";
@@ -48,7 +50,7 @@ export function Header() {
           {/* CTA Buttons */}
           <div className="flex items-center gap-3">
             <a
-              href="https://wa.me/573183773905"
+              href={whatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm text-slate-600 hover:text-whatsapp transition-colors"
@@ -99,7 +101,7 @@ export function Header() {
           ))}
           <div className="pt-4 border-t border-slate-100">
             <a
-              href="https://wa.me/573183773905"
+              href={whatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 py-3 px-4 text-whatsapp font-medium"

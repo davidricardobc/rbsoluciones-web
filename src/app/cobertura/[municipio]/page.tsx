@@ -1,3 +1,4 @@
+import { whatsAppUrl, municipalityWhatsAppMessage } from "@/lib/whatsapp";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { serviceAreas } from "@/lib/service-areas";
@@ -51,6 +52,7 @@ export default async function MunicipalityPage({ params }: Props) {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold font-heading text-white mb-6">Cuéntanos qué necesitas en {area.name}</h2>
           <Link href="/cotizar/" className="inline-flex bg-white text-accent rounded-xl px-6 py-3 font-semibold">Solicitar cotización</Link>
+          <a href={whatsAppUrl(municipalityWhatsAppMessage(area.name))} target="_blank" rel="noopener noreferrer" className="inline-flex m-2 bg-whatsapp text-white rounded-xl px-6 py-3 font-semibold">Consultar por WhatsApp</a>
         </div>
       </section>
       <nav aria-label="Otros municipios" className="max-w-5xl mx-auto px-4 py-10 flex flex-wrap gap-6">

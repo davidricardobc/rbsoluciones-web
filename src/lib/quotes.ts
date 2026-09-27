@@ -1,3 +1,5 @@
+import { whatsAppUrl } from "./whatsapp.ts";
+
 export interface FormData {
   category: "hogar" | "estructuras" | "";
   homeServices: string[];
@@ -21,6 +23,7 @@ interface QuoteSubmissionResponse {
   ok: boolean;
   reference?: string;
   message?: string;
+  channel?: "whatsapp";
 }
 
 const cityMap: Record<string, string> = {
@@ -59,16 +62,20 @@ function buildReference() {
   return `RB-${date}-${random}`;
 }
 
-export async function submitQuote(formData: FormData, webhookUrl?: string): Promise<QuoteSubmissionResponse> {
+export async function submitQuote(formData: FormData, webhookUrl?: string, openWhatsApp?: (url: string) => void): Promise<QuoteSubmissionResponse> {
 
-  if (!webhookUrl) {
+  if (!formData.acceptTerms) return { ok: false, message: "Acepta la política de privacidad para continuar." };
+
+  if (!webhookUrl?.trim()) {
+    // Run before any await so browsers retain the submit gesture when opening the tab.
+    openWhatsApp?.(quoteWhatsAppUrl(formData));
     return {
-      ok: false,
-      message: "Continúa por WhatsApp para enviar los detalles de tu proyecto.",
+      ok: true,
+      channel: "whatsapp",
+      message: "Tu solicitud está lista en WhatsApp, solo presiona enviar",
     };
   }
 
-  if (!formData.acceptTerms) return { ok: false, message: "Acepta la política de privacidad para continuar." };
   try {
     const url = new URL(webhookUrl);
     if (url.protocol !== "https:" || url.username || url.password) throw new Error("Invalid URL");
@@ -143,9 +150,24 @@ export function quoteWhatsAppUrl(formData: FormData, reference?: string | null) 
   const services = formData.category === "hogar" ? formData.homeServices : formData.structServices;
   const text = ["Hola, quiero cotizar un proyecto con RB Soluciones.",
     reference ? `Referencia recibida: ${reference}` : "Solicitud pendiente de envío por WhatsApp.",
-    `Nombre: ${formData.fullName}`, `Correo: ${formData.email}`, `WhatsApp: ${formData.whatsapp}`,
-    `Ciudad: ${city || ""}. Sector: ${formData.neighborhood}`, `Servicios: ${services.join(", ")}`,
-    `Proyecto: ${formData.projectDescription}`, `Etapa: ${projectStageMap[formData.projectStage] || ""}`,
-    `Plazo: ${timelineMap[formData.timeline] || ""}`, `Notas: ${formData.additionalComments}`].join("\n");
-  return `https://wa.me/573183773905?text=${encodeURIComponent(text)}`;
+    `Nombre: ${formData.fullName.trim()}`, `WhatsApp: +57${formData.whatsapp}`, `Correo: ${formData.email.trim()}`,
+    `Servicios: ${services.map(service => serviceNames[service] || service).join(", ")}`,
+    `Tipo de proyecto: ${formData.category === "hogar" ? "Hogar" : "Estructuras"}`,
+    `Medidas y detalles: ${formData.projectDescription.trim()}`,
+    `Municipio: ${city || formData.city}`,
+    formData.neighborhood.trim() ? `Sector: ${formData.neighborhood.trim()}` : "",
+    `Etapa: ${projectStageMap[formData.projectStage] || formData.projectStage}`,
+    formData.timeline ? `Plazo: ${timelineMap[formData.timeline] || formData.timeline}` : "",
+    formData.additionalComments.trim() ? `Notas: ${formData.additionalComments.trim()}` : "",
+    `Contacto preferido: ${formData.preferWhatsApp ? "WhatsApp" : "Correo"}`,
+    formData.source ? `Nos conoció por: ${sourceMap[formData.source] || formData.source}` : "",
+  ].filter(Boolean).join("\n");
+  return whatsAppUrl(text);
 }
+
+const serviceNames: Record<string, string> = {
+  cocinas: "Cocinas modulares", closets: "Closets a medida", centros: "Centros de entretenimiento",
+  pvc: "PVC marmolizado", wpc: "Acabados WPC", spc: "Piso SPC", cerramientos: "Cerramientos de terrazas",
+  techos: "Techos y cubiertas", montajes: "Montajes metalmecánicos", industrial: "Estructuras industriales",
+  adecuaciones: "Adecuaciones estructurales",
+};

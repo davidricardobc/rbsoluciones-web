@@ -1,3 +1,4 @@
+import { whatsAppUrl, serviceWhatsAppMessage } from "@/lib/whatsapp";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ServicePhoto } from "@/components/ServicePhoto";
@@ -211,6 +212,7 @@ export default function ServiciosPage() {
             Solicitar Cotización Gratis
             <ArrowRight className="w-5 h-5" />
           </Link>
+              <a href={whatsAppUrl(serviceWhatsAppMessage("sus servicios"))} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center m-2 px-6 py-3 bg-whatsapp text-white rounded-xl font-semibold">Consultar por WhatsApp</a>
         </div>
       </section>
     </>

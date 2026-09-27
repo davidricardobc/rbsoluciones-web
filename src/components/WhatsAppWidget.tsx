@@ -1,5 +1,7 @@
 "use client";
 
+import { whatsAppUrl } from "@/lib/whatsapp";
+
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X } from "lucide-react";
 import { useState } from "react";
@@ -9,11 +11,7 @@ export function WhatsAppWidget() {
   const isVisible = true;
 
 
-  const phoneNumber = "573183773905"; // Replace with actual number
-  const message = encodeURIComponent(
-    "Hola, vi su página web y estoy interesado en información sobre sus servicios. ¿Podrían ayudarme?"
-  );
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+  const whatsappUrl = whatsAppUrl();
 
   return (
     <AnimatePresence>

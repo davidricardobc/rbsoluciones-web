@@ -1,3 +1,4 @@
+import { whatsAppUrl, serviceWhatsAppMessage } from "@/lib/whatsapp";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -113,6 +114,7 @@ export default function TechosCubiertasPage() {
               >
                 Solicitar Cotización
               </Link>
+              <a href={whatsAppUrl(serviceWhatsAppMessage("techos y cubiertas"))} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center m-2 px-6 py-3 bg-whatsapp text-white rounded-xl font-semibold">Consultar por WhatsApp</a>
             </div>
           </div>
         </div>

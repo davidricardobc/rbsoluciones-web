@@ -1,5 +1,7 @@
 "use client";
 
+import { whatsAppUrl } from "@/lib/whatsapp";
+
 import Link from "next/link";
 import { Phone, Mail, MapPin, Instagram, Facebook, ArrowUpRight } from "lucide-react";
 
@@ -113,7 +115,7 @@ export function Footer() {
               <div className="mb-4">
                 <p className="text-slate-400 text-xs uppercase tracking-wide mb-1">Teléfono / WhatsApp</p>
                 <a 
-                  href="https://wa.me/573183773905" 
+                  href={whatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-white hover:text-accent transition-colors group"

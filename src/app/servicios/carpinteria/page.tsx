@@ -1,3 +1,4 @@
+import { whatsAppUrl, serviceWhatsAppMessage } from "@/lib/whatsapp";
 import Link from "next/link";
 import { Coverage } from "@/components/sections/Coverage";
 import { localMetadata } from "@/lib/local-seo";
@@ -51,6 +52,7 @@ export default function CarpentryPage() {
             <li>Precio, transporte, plazos y condiciones se acuerdan según la propuesta de cada proyecto.</li>
           </ol>
           <Link href="/cotizar/" className="inline-flex mt-8 bg-accent text-white rounded-xl px-6 py-3 font-semibold">Consultar mi mueble a medida</Link>
+              <a href={whatsAppUrl(serviceWhatsAppMessage("carpintería a medida"))} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center m-2 px-6 py-3 bg-whatsapp text-white rounded-xl font-semibold">Consultar por WhatsApp</a>
         </div>
       </section>
       <Coverage />

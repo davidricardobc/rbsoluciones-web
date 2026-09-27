@@ -1,5 +1,7 @@
 "use client";
 
+import { whatsAppUrl } from "@/lib/whatsapp";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
@@ -50,7 +52,7 @@ export function CTABanner() {
             <ArrowRight className="w-5 h-5" />
           </Link>
           <a
-            href="https://wa.me/573183773905"
+            href={whatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm px-8 py-4 rounded-xl font-semibold text-base transition-all"
