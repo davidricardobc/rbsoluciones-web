@@ -75,19 +75,19 @@ const estructuraServices = [
     icon: Wrench, 
     title: "Montajes Metalmecánicos", 
     description: "Fabricación e instalación de estructuras metálicas industriales. Naves industriales, mezzanines, plataformas y soportes especiales.",
-    href: "/servicios/estructuras/montajes-metalMecanicos" 
+    href: "/servicios/estructuras/montajes-metalMecanicos"
   },
   { 
     icon: Building2, 
     title: "Estructuras Industriales", 
     description: "Grandes volúmenes, grandes responsabilidades. Diseño estructural, cálculo de cargas, soldadura certificada y montaje profesional.",
-    href: "/servicios/estructuras/estructuras-industriales" 
+    href: "/servicios/estructuras/montajes-metalMecanicos"
   },
   { 
     icon: Layers, 
     title: "Adecuaciones Estructurales", 
-    description: "Refuerzos, remodelaciones y modificaciones a estructuras existentes. Certificaciones estructurales disponibles.",
-    href: "/servicios/estructuras/adecuaciones-estructurales" 
+    description: "Refuerzos, ampliaciones y ajustes sobre estructuras existentes con enfoque t?cnico y ejecuci?n profesional.",
+    href: "/contacto"
   },
 ];
 

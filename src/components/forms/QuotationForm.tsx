@@ -2,35 +2,17 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  ArrowRight, 
-  ArrowLeft, 
-  CheckCircle, 
-  Home, 
+import {
+  ArrowRight,
+  ArrowLeft,
+  CheckCircle,
+  Home,
   Building2,
   MessageCircle,
   Loader2
 } from "lucide-react";
 import Link from "next/link";
-
-interface FormData {
-  category: "hogar" | "estructuras" | "";
-  homeServices: string[];
-  structServices: string[];
-  projectDescription: string;
-  projectStage: string;
-  timeline: string;
-  city: string;
-  cityOther: string;
-  neighborhood: string;
-  fullName: string;
-  email: string;
-  whatsapp: string;
-  preferWhatsApp: boolean;
-  source: string;
-  additionalComments: string;
-  acceptTerms: boolean;
-}
+import { submitQuote, quoteWhatsAppUrl, type FormData } from "@/lib/quotes";
 
 const homeServicesOptions = [
   { value: "cocinas", label: "Cocinas Modulares" },
@@ -53,8 +35,10 @@ export function QuotationForm() {
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submissionReference, setSubmissionReference] = useState<string | null>(null);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
-  
+
   const [formData, setFormData] = useState<FormData>({
     category: "",
     homeServices: [],
@@ -74,11 +58,13 @@ export function QuotationForm() {
     acceptTerms: false,
   });
 
-  const updateField = (field: keyof FormData, value: any) => {
+  const updateField = <K extends keyof FormData,>(field: K, value: FormData[K]) => {
     setFormData(prev => ({ ...prev, [field]: value }));
-    // Clear error when field is updated
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: undefined }));
+    }
+    if (submitError) {
+      setSubmitError(null);
     }
   };
 
@@ -99,7 +85,7 @@ export function QuotationForm() {
 
   const validateStep2 = () => {
     const newErrors: Partial<Record<keyof FormData, string>> = {};
-    if (formData.projectDescription.length < 20) {
+    if (formData.projectDescription.trim().length < 20) {
       newErrors.projectDescription = "Describe tu proyecto con al menos 20 caracteres";
     }
     if (!formData.projectStage) {
@@ -111,7 +97,7 @@ export function QuotationForm() {
     if (!formData.city) {
       newErrors.city = "Selecciona una ciudad";
     }
-    if (formData.city === "otro" && !formData.cityOther) {
+    if (formData.city === "otro" && !formData.cityOther.trim()) {
       newErrors.cityOther = "Especifica tu ciudad";
     }
     setErrors(newErrors);
@@ -120,7 +106,7 @@ export function QuotationForm() {
 
   const validateStep3 = () => {
     const newErrors: Partial<Record<keyof FormData, string>> = {};
-    if (formData.fullName.length < 3) {
+    if (formData.fullName.trim().length < 3) {
       newErrors.fullName = "Ingresa tu nombre completo";
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
@@ -138,13 +124,26 @@ export function QuotationForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isLoading || step !== 3) return;
+    if (!validateStep1()) { setStep(1); return; }
+    if (!validateStep2()) { setStep(2); return; }
     if (!validateStep3()) return;
-    
+
     setIsLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    console.log("Form data:", formData);
-    setIsLoading(false);
+    setSubmitError(null);
+
+    const result = await submitQuote(formData, process.env.NEXT_PUBLIC_RB_QUOTES_WEBHOOK_URL);
+
+    if (!result.ok) {
+      setSubmitError(result.message || "No pudimos enviar tu solicitud. Intenta de nuevo o escríbenos por WhatsApp.");
+      setIsLoading(false);
+      return;
+    }
+
+    setSubmissionReference(result.reference || null);
     setIsSubmitted(true);
+
+    setIsLoading(false);
   };
 
   const nextStep = () => {
@@ -168,14 +167,14 @@ export function QuotationForm() {
           ¡Recibimos tu solicitud!
         </h2>
         <p className="text-slate-600 mb-2">
-          Tu número de cotización: <span className="font-mono font-bold text-accent">RB-2026-{Math.floor(Math.random() * 100000).toString().padStart(5, '0')}</span>
+          Tu número de cotización: <span className="font-mono font-bold text-accent">{submissionReference}</span>
         </p>
         <p className="text-slate-600 mb-8">
-          Un asesor te contactará en máximo 24 horas hábiles.
+          Tu solicitud fue registrada. Puedes continuar la conversación por WhatsApp con esta referencia.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="https://wa.me/573183773905"
+            href={quoteWhatsAppUrl(formData, submissionReference)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 bg-whatsapp text-white px-6 py-3 rounded-xl font-medium hover:bg-whatsapp/90 transition-colors"
@@ -196,12 +195,9 @@ export function QuotationForm() {
 
   return (
     <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-      {/* Progress Bar */}
       <div className="bg-slate-50 px-8 py-6 border-b border-slate-100">
         <div className="flex items-center justify-between mb-4">
-          <span className="text-sm font-medium text-slate-600">
-            Paso {step} de 3
-          </span>
+          <span className="text-sm font-medium text-slate-600">Paso {step} de 3</span>
           <span className="text-sm font-medium text-accent">
             {step === 1 ? "Tipo de Proyecto" : step === 2 ? "Detalles" : "Contacto"}
           </span>
@@ -218,7 +214,6 @@ export function QuotationForm() {
 
       <form onSubmit={handleSubmit} className="p-8">
         <AnimatePresence mode="wait">
-          {/* Step 1: Project Type */}
           {step === 1 && (
             <motion.div
               key="step1"
@@ -227,18 +222,14 @@ export function QuotationForm() {
               exit={{ opacity: 0, x: -20 }}
               className="space-y-6"
             >
-              <h2 className="text-xl font-bold text-slate-900 font-heading">
-                ¿Qué tipo de proyecto necesitas?
-              </h2>
+              <h2 className="text-xl font-bold text-slate-900 font-heading">¿Qué tipo de proyecto necesitas?</h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <button
                   type="button"
                   onClick={() => updateField("category", "hogar")}
                   className={`p-6 rounded-xl border-2 text-left transition-all ${
-                    formData.category === "hogar"
-                      ? "border-accent bg-accent/5"
-                      : "border-slate-200 hover:border-accent/30"
+                    formData.category === "hogar" ? "border-accent bg-accent/5" : "border-slate-200 hover:border-accent/30"
                   }`}
                 >
                   <Home className={`w-8 h-8 mb-3 ${formData.category === "hogar" ? "text-accent" : "text-slate-400"}`} />
@@ -249,9 +240,7 @@ export function QuotationForm() {
                   type="button"
                   onClick={() => updateField("category", "estructuras")}
                   className={`p-6 rounded-xl border-2 text-left transition-all ${
-                    formData.category === "estructuras"
-                      ? "border-accent bg-accent/5"
-                      : "border-slate-200 hover:border-accent/30"
+                    formData.category === "estructuras" ? "border-accent bg-accent/5" : "border-slate-200 hover:border-accent/30"
                   }`}
                 >
                   <Building2 className={`w-8 h-8 mb-3 ${formData.category === "estructuras" ? "text-accent" : "text-slate-400"}`} />
@@ -259,15 +248,11 @@ export function QuotationForm() {
                   <div className="text-sm text-slate-500 mt-1">Techos, montajes metálicos</div>
                 </button>
               </div>
-              {errors.category && (
-                <p className="text-red-500 text-sm">{errors.category}</p>
-              )}
+              {errors.category && <p className="text-red-500 text-sm">{errors.category}</p>}
 
               {formData.category === "hogar" && (
                 <div className="space-y-3">
-                  <label className="block font-medium text-slate-700">
-                    ¿Qué servicios te interesan?
-                  </label>
+                  <label className="block font-medium text-slate-700">¿Qué servicios te interesan?</label>
                   <div className="grid grid-cols-2 gap-3">
                     {homeServicesOptions.map((service) => (
                       <label
@@ -295,17 +280,13 @@ export function QuotationForm() {
                       </label>
                     ))}
                   </div>
-                  {errors.homeServices && (
-                    <p className="text-red-500 text-sm">{errors.homeServices}</p>
-                  )}
+                  {errors.homeServices && <p className="text-red-500 text-sm">{errors.homeServices}</p>}
                 </div>
               )}
 
               {formData.category === "estructuras" && (
                 <div className="space-y-3">
-                  <label className="block font-medium text-slate-700">
-                    ¿Qué servicios te interesan?
-                  </label>
+                  <label className="block font-medium text-slate-700">¿Qué servicios te interesan?</label>
                   <div className="grid grid-cols-2 gap-3">
                     {structServicesOptions.map((service) => (
                       <label
@@ -333,15 +314,12 @@ export function QuotationForm() {
                       </label>
                     ))}
                   </div>
-                  {errors.structServices && (
-                    <p className="text-red-500 text-sm">{errors.structServices}</p>
-                  )}
+                  {errors.structServices && <p className="text-red-500 text-sm">{errors.structServices}</p>}
                 </div>
               )}
             </motion.div>
           )}
 
-          {/* Step 2: Project Details */}
           {step === 2 && (
             <motion.div
               key="step2"
@@ -350,31 +328,23 @@ export function QuotationForm() {
               exit={{ opacity: 0, x: -20 }}
               className="space-y-6"
             >
-              <h2 className="text-xl font-bold text-slate-900 font-heading">
-                Cuéntanos los detalles
-              </h2>
+              <h2 className="text-xl font-bold text-slate-900 font-heading">Cuéntanos los detalles</h2>
 
               <div>
-                <label className="block font-medium text-slate-700 mb-2">
-                  Descripción del proyecto *
-                </label>
-                <textarea
+                <label htmlFor="projectDescription" className="block font-medium text-slate-700 mb-2">Descripción del proyecto *</label>
+                <textarea id="projectDescription"
                   value={formData.projectDescription}
                   onChange={(e) => updateField("projectDescription", e.target.value)}
                   rows={4}
                   placeholder="Ejemplo: Necesito una cocina integral en L para un espacio de 3x2 metros..."
                   className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
                 />
-                {errors.projectDescription && (
-                  <p className="text-red-500 text-sm mt-1">{errors.projectDescription}</p>
-                )}
+                {errors.projectDescription && <p className="text-red-500 text-sm mt-1">{errors.projectDescription}</p>}
               </div>
 
               <div>
-                <label className="block font-medium text-slate-700 mb-2">
-                  Etapa del proyecto *
-                </label>
-                <select
+                <label htmlFor="projectStage" className="block font-medium text-slate-700 mb-2">Etapa del proyecto *</label>
+                <select id="projectStage"
                   value={formData.projectStage}
                   onChange={(e) => updateField("projectStage", e.target.value)}
                   className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
@@ -385,16 +355,12 @@ export function QuotationForm() {
                   <option value="construccion">Obra en construcción</option>
                   <option value="renovacion">Renovación de espacio existente</option>
                 </select>
-                {errors.projectStage && (
-                  <p className="text-red-500 text-sm mt-1">{errors.projectStage}</p>
-                )}
+                {errors.projectStage && <p className="text-red-500 text-sm mt-1">{errors.projectStage}</p>}
               </div>
 
               <div>
-                <label className="block font-medium text-slate-700 mb-2">
-                  ¿Cuándo necesitas iniciar? *
-                </label>
-                <select
+                <label htmlFor="timeline" className="block font-medium text-slate-700 mb-2">¿Cuándo necesitas iniciar? *</label>
+                <select id="timeline"
                   value={formData.timeline}
                   onChange={(e) => updateField("timeline", e.target.value)}
                   className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
@@ -405,17 +371,13 @@ export function QuotationForm() {
                   <option value="3-6meses">Dentro de 3-6 meses</option>
                   <option value="indefinido">Aún no lo tengo definido</option>
                 </select>
-                {errors.timeline && (
-                  <p className="text-red-500 text-sm mt-1">{errors.timeline}</p>
-                )}
+                {errors.timeline && <p className="text-red-500 text-sm mt-1">{errors.timeline}</p>}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block font-medium text-slate-700 mb-2">
-                    Ciudad *
-                  </label>
-                  <select
+                  <label htmlFor="city" className="block font-medium text-slate-700 mb-2">Ciudad *</label>
+                  <select id="city"
                     value={formData.city}
                     onChange={(e) => updateField("city", e.target.value)}
                     className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
@@ -426,33 +388,25 @@ export function QuotationForm() {
                     <option value="bogota">Bogotá</option>
                     <option value="otro">Otro</option>
                   </select>
-                  {errors.city && (
-                    <p className="text-red-500 text-sm mt-1">{errors.city}</p>
-                  )}
+                  {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city}</p>}
                 </div>
 
                 {formData.city === "otro" ? (
                   <div>
-                    <label className="block font-medium text-slate-700 mb-2">
-                      Especifica tu ciudad *
-                    </label>
-                    <input
+                    <label htmlFor="cityOther" className="block font-medium text-slate-700 mb-2">Especifica tu ciudad *</label>
+                    <input id="cityOther"
                       type="text"
                       value={formData.cityOther}
                       onChange={(e) => updateField("cityOther", e.target.value)}
                       placeholder="Ej: Granada (Meta)"
                       className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
                     />
-                    {errors.cityOther && (
-                      <p className="text-red-500 text-sm mt-1">{errors.cityOther}</p>
-                    )}
+                    {errors.cityOther && <p className="text-red-500 text-sm mt-1">{errors.cityOther}</p>}
                   </div>
                 ) : (
                   <div>
-                    <label className="block font-medium text-slate-700 mb-2">
-                      Barrio / Sector
-                    </label>
-                    <input
+                    <label htmlFor="neighborhood" className="block font-medium text-slate-700 mb-2">Barrio / Sector</label>
+                    <input id="neighborhood"
                       type="text"
                       value={formData.neighborhood}
                       onChange={(e) => updateField("neighborhood", e.target.value)}
@@ -465,7 +419,6 @@ export function QuotationForm() {
             </motion.div>
           )}
 
-          {/* Step 3: Contact Info */}
           {step === 3 && (
             <motion.div
               key="step3"
@@ -474,66 +427,58 @@ export function QuotationForm() {
               exit={{ opacity: 0, x: -20 }}
               className="space-y-6"
             >
-              <h2 className="text-xl font-bold text-slate-900 font-heading">
-                Tus datos para contactarte
-              </h2>
+              <h2 className="text-xl font-bold text-slate-900 font-heading">Tus datos para contactarte</h2>
 
               <div>
-                <label className="block font-medium text-slate-700 mb-2">
-                  Nombre completo *
-                </label>
-                <input
+                <label htmlFor="fullName" className="block font-medium text-slate-700 mb-2">Nombre completo *</label>
+                <input id="fullName"
                   type="text"
                   value={formData.fullName}
                   onChange={(e) => updateField("fullName", e.target.value)}
                   placeholder="Ej: Juan Pérez García"
                   className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
                 />
-                {errors.fullName && (
-                  <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
-                )}
+                {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block font-medium text-slate-700 mb-2">
-                    Correo electrónico *
-                  </label>
-                  <input
+                  <label htmlFor="email" className="block font-medium text-slate-700 mb-2">Correo electrónico *</label>
+                  <input id="email"
                     type="email"
                     value={formData.email}
                     onChange={(e) => updateField("email", e.target.value)}
                     placeholder="Ej: juan@email.com"
                     className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
                   />
-                  {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-                  )}
+                  {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                 </div>
 
                 <div>
-                  <label className="block font-medium text-slate-700 mb-2">
-                    WhatsApp * (10 dígitos)
-                  </label>
-                  <input
+                  <label htmlFor="whatsapp" className="block font-medium text-slate-700 mb-2">WhatsApp * (10 dígitos)</label>
+                  <input id="whatsapp"
                     type="tel"
                     value={formData.whatsapp}
-                    onChange={(e) => updateField("whatsapp", e.target.value.replace(/\D/g, ''))}
+                    onChange={(e) => updateField("whatsapp", e.target.value.replace(/\D/g, ""))}
                     placeholder="Ej: 3123456789"
                     maxLength={10}
                     className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
                   />
-                  {errors.whatsapp && (
-                    <p className="text-red-500 text-sm mt-1">{errors.whatsapp}</p>
-                  )}
+                  {errors.whatsapp && <p className="text-red-500 text-sm mt-1">{errors.whatsapp}</p>}
                 </div>
               </div>
 
+              {submitError && (
+                <div role="alert" className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                  {submitError}
+                  {formData.acceptTerms && <a href={quoteWhatsAppUrl(formData)} target="_blank" rel="noopener noreferrer" className="block mt-3 font-semibold underline">Continuar por WhatsApp</a>}
+                  <p className="mt-2">Revisa el mensaje y pulsa Enviar en WhatsApp para completar la solicitud.</p>
+                </div>
+              )}
+
               <div>
-                <label className="block font-medium text-slate-700 mb-2">
-                  ¿Cómo nos encontraste?
-                </label>
-                <select
+                <label htmlFor="source" className="block font-medium text-slate-700 mb-2">¿Cómo nos encontraste?</label>
+                <select id="source"
                   value={formData.source}
                   onChange={(e) => updateField("source", e.target.value)}
                   className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
@@ -549,10 +494,8 @@ export function QuotationForm() {
               </div>
 
               <div>
-                <label className="block font-medium text-slate-700 mb-2">
-                  ¿Algo más que debamos saber?
-                </label>
-                <textarea
+                <label htmlFor="additionalComments" className="block font-medium text-slate-700 mb-2">¿Algo más que debamos saber?</label>
+                <textarea id="additionalComments"
                   value={formData.additionalComments}
                   onChange={(e) => updateField("additionalComments", e.target.value)}
                   rows={3}
@@ -570,27 +513,21 @@ export function QuotationForm() {
                     className="w-5 h-5 text-accent rounded mt-0.5"
                   />
                   <span className="text-sm text-slate-600">
-                    Acepto la{" "}
-                    <Link href="/privacidad" className="text-accent hover:underline">
-                      política de privacidad
-                    </Link>{" "}
-                    y el tratamiento de mis datos personales *
+                    Acepto la <Link href="/privacidad" className="text-accent hover:underline">política de privacidad</Link> y el tratamiento de mis datos personales *
                   </span>
                 </label>
-                {errors.acceptTerms && (
-                  <p className="text-red-500 text-sm mt-1">{errors.acceptTerms}</p>
-                )}
+                {errors.acceptTerms && <p className="text-red-500 text-sm mt-1">{errors.acceptTerms}</p>}
               </div>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Navigation Buttons */}
         <div className="flex justify-between mt-8 pt-6 border-t border-slate-100">
           {step > 1 ? (
             <button
               type="button"
               onClick={prevStep}
+              disabled={isLoading}
               className="inline-flex items-center gap-2 px-6 py-3 text-slate-600 hover:text-slate-900 font-medium transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />

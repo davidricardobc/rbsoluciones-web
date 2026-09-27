@@ -1,0 +1,337 @@
+{
+  "name": "RB Soluciones - Captura Cotizaciones Web",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "rb-soluciones-cotizaciones",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "https://rbsoluciones.co"
+        }
+      },
+      "id": "webhook-node",
+      "name": "Webhook Cotizaciones",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        260,
+        300
+      ],
+      "webhookId": "rb-soluciones-cotizaciones"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "lead-reference",
+              "name": "reference",
+              "value": "={{ $json.body.reference }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-name",
+              "name": "fullName",
+              "value": "={{ $json.body.contact.fullName }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-email",
+              "name": "email",
+              "value": "={{ $json.body.contact.email }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-whatsapp",
+              "name": "whatsapp",
+              "value": "={{ $json.body.contact.whatsapp }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-city",
+              "name": "city",
+              "value": "={{ $json.body.project.city }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-services",
+              "name": "services",
+              "value": "={{ $json.body.project.services.join(', ') }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-stage",
+              "name": "stage",
+              "value": "={{ $json.body.project.stage }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-timeline",
+              "name": "timeline",
+              "value": "={{ $json.body.project.timeline }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-description",
+              "name": "description",
+              "value": "={{ $json.body.project.description }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-source",
+              "name": "source",
+              "value": "={{ $json.body.marketing.source }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-notes",
+              "name": "notes",
+              "value": "={{ $json.body.notes || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-created-at",
+              "name": "createdAt",
+              "value": "={{ $json.body.createdAt }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-consent",
+              "name": "consent",
+              "value": "={{ $json.body.consent }}",
+              "type": "boolean"
+            },
+            {
+              "id": "lead-neighborhood",
+              "name": "neighborhood",
+              "value": "={{ $json.body.project.neighborhood || '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-node",
+      "name": "Normalizar Lead",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "REEMPLAZAR_CON_ID_DE_TU_SHEET"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": "Cotizaciones"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Referencia": "={{ $json.reference }}",
+            "Fecha": "={{ $json.createdAt }}",
+            "Nombre": "={{ $json.fullName }}",
+            "Correo": "={{ $json.email }}",
+            "WhatsApp": "={{ $json.whatsapp }}",
+            "Ciudad": "={{ $json.city }}",
+            "Servicios": "={{ $json.services }}",
+            "Etapa": "={{ $json.stage }}",
+            "Tiempo": "={{ $json.timeline }}",
+            "Descripcion": "={{ $json.description }}",
+            "Fuente": "={{ $json.source }}",
+            "Notas": "={{ $json.notes }}",
+            "Consentimiento": "={{ $json.consent }}",
+            "Sector": "={{ $json.neighborhood }}"
+          }
+        },
+        "options": {}
+      },
+      "id": "sheets-node",
+      "name": "Guardar en Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1010,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { ok: true, reference: $(\"Normalizar Lead\").first().json.reference } }}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "https://rbsoluciones.co"
+              },
+              {
+                "name": "Access-Control-Allow-Headers",
+                "value": "Content-Type"
+              },
+              {
+                "name": "Access-Control-Allow-Methods",
+                "value": "POST, OPTIONS"
+              }
+            ]
+          }
+        }
+      },
+      "id": "response-success-node",
+      "name": "Responder OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        1510,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { ok: false, message: \"Datos de cotización inválidos\" } }}",
+        "options": {
+          "responseCode": 400,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "https://rbsoluciones.co"
+              },
+              {
+                "name": "Access-Control-Allow-Headers",
+                "value": "Content-Type"
+              },
+              {
+                "name": "Access-Control-Allow-Methods",
+                "value": "POST, OPTIONS"
+              }
+            ]
+          }
+        }
+      },
+      "id": "response-auth-node",
+      "name": "Responder 400",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        760,
+        420
+      ]
+    },
+    {
+      "id": "validate-lead",
+      "name": "Validar solicitud",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        300
+      ],
+      "parameters": {
+        "jsCode": "const body = $input.first().json.body;\nconst text = (s, min, max) => typeof s === 'string' && s.trim().length >= min && s.length <= max;\nconst valid = body && body.consent === true && /^RB-[0-9]{8}-[0-9]{5}$/.test(body.reference || '') &&\n  text(body.contact?.fullName, 3, 150) && text(body.contact?.email, 5, 254) && /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(body.contact.email) && /^\\+57[0-9]{10}$/.test(body.contact?.whatsapp || '') &&\n  ['hogar','estructuras'].includes(body.project?.category) && text(body.project?.description,20,5000) &&\n  text(body.project?.city,2,150) && Array.isArray(body.project?.services) && body.project.services.length > 0 && body.project.services.length <= 20 && body.project.services.every(s => text(s,1,100)) &&\n  text(body.project?.stage,1,150) && text(body.project?.timeline,1,150) && (!body.notes || text(body.notes,0,3000));\n// Prefix spreadsheet formula starters; persist consent and server reception time.\nconst safe = v => typeof v === 'string' ? (/^[=+@\\-\\t\\r]/.test(v) ? \"'\" + v : v) : Array.isArray(v) ? v.map(safe) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k,x]) => [k,safe(x)])) : v;\nreturn [{json: {valid: Boolean(valid), body: valid ? safe({...body, createdAt: new Date().toISOString()}) : {}}}];"
+      }
+    },
+    {
+      "id": "valid-condition",
+      "name": "Solicitud válida",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        640,
+        300
+      ],
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.valid }}",
+              "value2": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook Cotizaciones": {
+      "main": [
+        [
+          {
+            "node": "Validar solicitud",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validar solicitud": {
+      "main": [
+        [
+          {
+            "node": "Solicitud válida",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Solicitud válida": {
+      "main": [
+        [
+          {
+            "node": "Normalizar Lead",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Responder 400",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalizar Lead": {
+      "main": [
+        [
+          {
+            "node": "Guardar en Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guardar en Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Responder OK",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "rb-cotizaciones-v1",
+  "id": "rb-cotizaciones-web"
+}
